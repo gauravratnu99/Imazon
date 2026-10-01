@@ -1,0 +1,6 @@
+{
+  "name": "Imazon - Image Compression & Editor",
+  "description": "Compress JPG, PNG, SVG, GIF, and WebP images with the best quality and compression ratio. Batch compress and download single or multiple images.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
