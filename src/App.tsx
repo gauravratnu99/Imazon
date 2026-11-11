@@ -3,9 +3,10 @@ import { Header } from './components/Header';
 import { ToolsSuiteBar } from './components/ToolsSuiteBar';
 import { CompressorApp } from './components/CompressorApp';
 import { ResizeTool } from './components/ResizeTool';
+import { UpscaleTool } from './components/UpscaleTool';
 import { ConvertTool } from './components/ConvertTool';
 import { CompanionInfo } from './components/CompanionInfo';
-import { ShieldCheck, Heart } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('compress');
@@ -38,7 +39,7 @@ export default function App() {
         onDownloadAllZip={() => zipFn?.()}
       />
 
-      {/* iLoveIMG Suite Strip */}
+      {/* Unified Suite Bar with Compress, Resize, Upscale, etc. */}
       <ToolsSuiteBar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Main Content Area */}
@@ -47,6 +48,7 @@ export default function App() {
           <CompressorApp onStateChange={handleStateChange} />
         )}
         {activeTab === 'resize' && <ResizeTool />}
+        {activeTab === 'upscale' && <UpscaleTool />}
         {activeTab === 'convert' && <ConvertTool />}
         {(activeTab === 'crop' || activeTab === 'editor' || activeTab === 'watermark') && (
           <CompanionInfo tool={activeTab} onGoToCompress={() => setActiveTab('compress')} />
@@ -59,7 +61,7 @@ export default function App() {
           <div className="flex items-center gap-2">
             <span className="font-bold text-neutral-800">Imazon</span>
             <span aria-hidden="true">·</span>
-            <span>Online Image Optimization & Compression Suite</span>
+            <span>Online Image Optimization, Resizing & Upscaling Suite</span>
           </div>
 
           <div className="flex items-center gap-1.5 text-neutral-600">
