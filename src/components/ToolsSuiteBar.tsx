@@ -3,6 +3,7 @@ import {
   Minimize2, 
   Maximize2, 
   Sparkles, 
+  Eraser, 
   Crop, 
   RefreshCw, 
   Wand2, 
@@ -36,6 +37,13 @@ export const ToolsSuiteBar: React.FC<ToolsSuiteBarProps> = ({ activeTab, setActi
       desc: 'Enlarge resolution by 2x, 4x, 8x',
       icon: Sparkles,
       activeColor: 'bg-indigo-50 border-indigo-600 text-indigo-700',
+    },
+    {
+      id: 'transparent',
+      name: 'Make Transparent',
+      desc: 'Remove photo or image background',
+      icon: Eraser,
+      activeColor: 'bg-violet-50 border-violet-600 text-violet-700',
     },
     {
       id: 'convert',

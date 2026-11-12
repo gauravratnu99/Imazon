@@ -4,6 +4,7 @@ import { ToolsSuiteBar } from './components/ToolsSuiteBar';
 import { CompressorApp } from './components/CompressorApp';
 import { ResizeTool } from './components/ResizeTool';
 import { UpscaleTool } from './components/UpscaleTool';
+import { TransparentTool } from './components/TransparentTool';
 import { ConvertTool } from './components/ConvertTool';
 import { CompanionInfo } from './components/CompanionInfo';
 import { ShieldCheck } from 'lucide-react';
@@ -39,7 +40,7 @@ export default function App() {
         onDownloadAllZip={() => zipFn?.()}
       />
 
-      {/* Unified Suite Bar with Compress, Resize, Upscale, etc. */}
+      {/* Unified Suite Bar with Compress, Resize, Upscale, Transparent, etc. */}
       <ToolsSuiteBar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Main Content Area */}
@@ -49,6 +50,7 @@ export default function App() {
         )}
         {activeTab === 'resize' && <ResizeTool />}
         {activeTab === 'upscale' && <UpscaleTool />}
+        {activeTab === 'transparent' && <TransparentTool />}
         {activeTab === 'convert' && <ConvertTool />}
         {(activeTab === 'crop' || activeTab === 'editor' || activeTab === 'watermark') && (
           <CompanionInfo tool={activeTab} onGoToCompress={() => setActiveTab('compress')} />
@@ -61,7 +63,7 @@ export default function App() {
           <div className="flex items-center gap-2">
             <span className="font-bold text-neutral-800">Imazon</span>
             <span aria-hidden="true">·</span>
-            <span>Online Image Optimization, Resizing & Upscaling Suite</span>
+            <span>Online Image Optimization, Background Removal, Resizing & Upscaling Suite</span>
           </div>
 
           <div className="flex items-center gap-1.5 text-neutral-600">

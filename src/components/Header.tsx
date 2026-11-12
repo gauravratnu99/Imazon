@@ -22,6 +22,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'compress', label: 'Compress IMAGE' },
     { id: 'resize', label: 'Resize IMAGE' },
     { id: 'upscale', label: 'Upscale PHOTO' },
+    { id: 'transparent', label: 'Make Transparent' },
     { id: 'convert', label: 'Convert to JPG' },
     { id: 'crop', label: 'Crop IMAGE' },
     { id: 'editor', label: 'Photo Editor' },
@@ -50,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Zone 2: Clean Navigation Links for All Tools */}
-        <nav className="hidden lg:flex items-center gap-6 text-sm font-medium text-neutral-600">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-medium text-neutral-600">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
             return (
