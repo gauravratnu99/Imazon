@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Sparkles, Wand2, Crop, Stamp } from 'lucide-react';
+import { ArrowLeft, Sparkles, Wand2, Stamp } from 'lucide-react';
 
 interface CompanionInfoProps {
   tool: string;
@@ -8,12 +8,6 @@ interface CompanionInfoProps {
 
 export const CompanionInfo: React.FC<CompanionInfoProps> = ({ tool, onGoToCompress }) => {
   const toolDetails: Record<string, { title: string; desc: string; icon: any; color: string }> = {
-    crop: {
-      title: 'Crop IMAGE',
-      desc: 'Crop JPG, PNG or GIFs with interactive visual crop handles and custom aspect ratios (16:9, 4:3, 1:1, Free).',
-      icon: Crop,
-      color: 'text-amber-600 bg-amber-50',
-    },
     editor: {
       title: 'Photo Editor',
       desc: 'Enhance photos with filters, color adjustments, brightness/contrast, vignette, and rotation.',

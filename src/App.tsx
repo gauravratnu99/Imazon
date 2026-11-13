@@ -5,6 +5,7 @@ import { CompressorApp } from './components/CompressorApp';
 import { ResizeTool } from './components/ResizeTool';
 import { UpscaleTool } from './components/UpscaleTool';
 import { TransparentTool } from './components/TransparentTool';
+import { CropTool } from './components/CropTool';
 import { ConvertTool } from './components/ConvertTool';
 import { CompanionInfo } from './components/CompanionInfo';
 import { ShieldCheck } from 'lucide-react';
@@ -51,8 +52,9 @@ export default function App() {
         {activeTab === 'resize' && <ResizeTool />}
         {activeTab === 'upscale' && <UpscaleTool />}
         {activeTab === 'transparent' && <TransparentTool />}
+        {activeTab === 'crop' && <CropTool />}
         {activeTab === 'convert' && <ConvertTool />}
-        {(activeTab === 'crop' || activeTab === 'editor' || activeTab === 'watermark') && (
+        {(activeTab === 'editor' || activeTab === 'watermark') && (
           <CompanionInfo tool={activeTab} onGoToCompress={() => setActiveTab('compress')} />
         )}
       </main>
