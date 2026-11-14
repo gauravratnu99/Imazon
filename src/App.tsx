@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { Header } from './components/Header';
 import { ToolsSuiteBar } from './components/ToolsSuiteBar';
 import { CompressorApp } from './components/CompressorApp';
@@ -6,6 +6,7 @@ import { ResizeTool } from './components/ResizeTool';
 import { UpscaleTool } from './components/UpscaleTool';
 import { TransparentTool } from './components/TransparentTool';
 import { CropTool } from './components/CropTool';
+import { WatermarkTool } from './components/WatermarkTool';
 import { ConvertTool } from './components/ConvertTool';
 import { CompanionInfo } from './components/CompanionInfo';
 import { ShieldCheck } from 'lucide-react';
@@ -14,20 +15,23 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('compress');
   const [hasFiles, setHasFiles] = useState(false);
   const [completedCount, setCompletedCount] = useState(0);
-  const [resetFn, setResetFn] = useState<(() => void) | null>(null);
-  const [zipFn, setZipFn] = useState<(() => void) | null>(null);
+  const resetFnRef = useRef<(() => void) | null>(null);
+  const zipFnRef = useRef<(() => void) | null>(null);
 
-  const handleStateChange = (
-    hasAnyFiles: boolean,
-    completed: number,
-    onReset: () => void,
-    onZip: () => void
-  ) => {
-    setHasFiles(hasAnyFiles);
-    setCompletedCount(completed);
-    setResetFn(() => onReset);
-    setZipFn(() => onZip);
-  };
+  const handleStateChange = useCallback(
+    (
+      hasAnyFiles: boolean,
+      completed: number,
+      onReset: () => void,
+      onZip: () => void
+    ) => {
+      setHasFiles(hasAnyFiles);
+      setCompletedCount(completed);
+      resetFnRef.current = onReset;
+      zipFnRef.current = onZip;
+    },
+    []
+  );
 
   return (
     <div className="min-h-screen flex flex-col bg-neutral-50 text-neutral-900 selection:bg-rose-100 selection:text-rose-900">
@@ -35,10 +39,10 @@ export default function App() {
       <Header
         activeTab={activeTab}
         setActiveTab={setActiveTab}
-        hasFiles={hasFiles}
-        onReset={() => resetFn?.()}
-        completedCount={completedCount}
-        onDownloadAllZip={() => zipFn?.()}
+        hasFiles={activeTab === 'compress' && hasFiles}
+        onReset={() => resetFnRef.current?.()}
+        completedCount={activeTab === 'compress' ? completedCount : 0}
+        onDownloadAllZip={() => zipFnRef.current?.()}
       />
 
       {/* Unified Suite Bar with Compress, Resize, Upscale, Transparent, etc. */}
@@ -53,8 +57,9 @@ export default function App() {
         {activeTab === 'upscale' && <UpscaleTool />}
         {activeTab === 'transparent' && <TransparentTool />}
         {activeTab === 'crop' && <CropTool />}
+        {activeTab === 'watermark' && <WatermarkTool />}
         {activeTab === 'convert' && <ConvertTool />}
-        {(activeTab === 'editor' || activeTab === 'watermark') && (
+        {activeTab === 'editor' && (
           <CompanionInfo tool={activeTab} onGoToCompress={() => setActiveTab('compress')} />
         )}
       </main>

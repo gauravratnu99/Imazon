@@ -170,9 +170,15 @@ export const CompressorApp: React.FC<CompressorAppProps> = ({ onStateChange }) =
     });
   };
 
+  // Keep latest items & callback in refs to stabilize action callbacks
+  const itemsRef = useRef<ImageFileItem[]>(items);
+  itemsRef.current = items;
+  const onStateChangeRef = useRef(onStateChange);
+  onStateChangeRef.current = onStateChange;
+
   // Download all as ZIP
-  const handleDownloadAllZip = async () => {
-    const doneItems = items.filter((i) => i.status === 'done');
+  const handleDownloadAllZip = useCallback(async () => {
+    const doneItems = itemsRef.current.filter((i) => i.status === 'done');
     if (doneItems.length === 0) return;
 
     setIsZipping(true);
@@ -186,7 +192,7 @@ export const CompressorApp: React.FC<CompressorAppProps> = ({ onStateChange }) =
       setIsZipping(false);
       setZipProgress(0);
     }
-  };
+  }, []);
 
   // Compute stats
   const completedItems = items.filter((i) => i.status === 'done');
@@ -202,23 +208,21 @@ export const CompressorApp: React.FC<CompressorAppProps> = ({ onStateChange }) =
       : 0;
 
   const handleClearAll = useCallback(() => {
-    items.forEach((item) => {
+    itemsRef.current.forEach((item) => {
       if (item.originalUrl) URL.revokeObjectURL(item.originalUrl);
       if (item.compressedUrl) URL.revokeObjectURL(item.compressedUrl);
     });
     setItems([]);
-  }, [items]);
+  }, []);
 
   React.useEffect(() => {
-    if (onStateChange) {
-      onStateChange(
-        items.length > 0,
-        completedItems.length,
-        handleClearAll,
-        handleDownloadAllZip
-      );
-    }
-  }, [items.length, completedItems.length, handleClearAll, handleDownloadAllZip, onStateChange]);
+    onStateChangeRef.current?.(
+      items.length > 0,
+      completedItems.length,
+      handleClearAll,
+      handleDownloadAllZip
+    );
+  }, [items.length, completedItems.length, handleClearAll, handleDownloadAllZip]);
 
   const stats: BatchStats = {
     totalFiles: items.length,

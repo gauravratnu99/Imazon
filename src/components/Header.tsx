@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'transparent', label: 'Make Transparent' },
     { id: 'convert', label: 'Convert to JPG' },
     { id: 'crop', label: 'Crop IMAGE' },
-    { id: 'editor', label: 'Photo Editor' },
+    { id: 'watermark', label: 'Watermark' },
   ];
 
   return (

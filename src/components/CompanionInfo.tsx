@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Sparkles, Wand2, Stamp } from 'lucide-react';
+import { ArrowLeft, Sparkles, Wand2 } from 'lucide-react';
 
 interface CompanionInfoProps {
   tool: string;
@@ -13,12 +13,6 @@ export const CompanionInfo: React.FC<CompanionInfoProps> = ({ tool, onGoToCompre
       desc: 'Enhance photos with filters, color adjustments, brightness/contrast, vignette, and rotation.',
       icon: Wand2,
       color: 'text-purple-600 bg-purple-50',
-    },
-    watermark: {
-      title: 'Watermark IMAGE',
-      desc: 'Stamp an image or text over your photos in seconds. Choose typography, transparency and position.',
-      icon: Stamp,
-      color: 'text-indigo-600 bg-indigo-50',
     },
   };
 
