@@ -7,8 +7,8 @@ import { UpscaleTool } from './components/UpscaleTool';
 import { TransparentTool } from './components/TransparentTool';
 import { CropTool } from './components/CropTool';
 import { WatermarkTool } from './components/WatermarkTool';
+import { PhotoEditorTool } from './components/PhotoEditorTool';
 import { ConvertTool } from './components/ConvertTool';
-import { CompanionInfo } from './components/CompanionInfo';
 import { ShieldCheck } from 'lucide-react';
 
 export default function App() {
@@ -59,9 +59,7 @@ export default function App() {
         {activeTab === 'crop' && <CropTool />}
         {activeTab === 'watermark' && <WatermarkTool />}
         {activeTab === 'convert' && <ConvertTool />}
-        {activeTab === 'editor' && (
-          <CompanionInfo tool={activeTab} onGoToCompress={() => setActiveTab('compress')} />
-        )}
+        {activeTab === 'editor' && <PhotoEditorTool />}
       </main>
 
       {/* Clean Footer */}
