@@ -41,10 +41,10 @@ export const Header: React.FC<HeaderProps> = ({
             }}
             className="flex items-center gap-2.5 group"
           >
-            <div className="w-8 h-8 rounded-lg bg-neutral-900 flex items-center justify-center text-white shadow-xs group-hover:bg-rose-600 transition-colors">
+            <div className="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white shadow-xs group-hover:bg-red-700 transition-colors">
               <Layers className="w-4 h-4 stroke-[2.5]" />
             </div>
-            <span className="text-xl font-bold tracking-tight text-neutral-900 font-sans">
+            <span className="text-xl font-bold tracking-tight text-red-600 group-hover:text-red-700 transition-colors font-sans">
               Imazon
             </span>
           </a>

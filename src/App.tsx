@@ -66,7 +66,7 @@ export default function App() {
       <footer className="border-t border-neutral-200 bg-white py-8 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
           <div className="flex items-center gap-2">
-            <span className="font-bold text-neutral-800">Imazon</span>
+            <span className="font-bold text-red-600">Imazon</span>
             <span aria-hidden="true">·</span>
             <span>Online Image Optimization, Background Removal, Resizing & Upscaling Suite</span>
           </div>
