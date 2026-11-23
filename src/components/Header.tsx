@@ -39,12 +39,12 @@ export const Header: React.FC<HeaderProps> = ({
               e.preventDefault();
               setActiveTab('compress');
             }}
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-3 group"
           >
-            <div className="w-8 h-8 rounded-lg bg-red-600 flex items-center justify-center text-white shadow-xs group-hover:bg-red-700 transition-colors">
-              <Layers className="w-4 h-4 stroke-[2.5]" />
+            <div className="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-white shadow-xs group-hover:bg-red-700 transition-colors">
+              <Layers className="w-5 h-5 stroke-[2.5]" />
             </div>
-            <span className="text-xl font-bold tracking-tight text-red-600 group-hover:text-red-700 transition-colors font-sans">
+            <span className="text-2xl font-extrabold tracking-tight text-red-600 group-hover:text-red-700 transition-colors font-sans">
               Imazon
             </span>
           </a>
