@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layers, FolderDown, RotateCcw, Wrench } from 'lucide-react';
+import { Layers, FolderDown, RotateCcw } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: string;
@@ -9,6 +9,17 @@ interface HeaderProps {
   completedCount: number;
   onDownloadAllZip: () => void;
 }
+
+const FEATURE_LABELS: Record<string, string> = {
+  compress: 'Compress IMAGE',
+  resize: 'Resize IMAGE',
+  upscale: 'Upscale PHOTO',
+  transparent: 'Make Transparent',
+  convert: 'Convert to JPG / WebP',
+  crop: 'Crop IMAGE',
+  editor: 'Photo Editor',
+  watermark: 'Watermark',
+};
 
 export const Header: React.FC<HeaderProps> = ({
   activeTab,
@@ -27,6 +38,8 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'crop', label: 'Crop IMAGE' },
     { id: 'watermark', label: 'Watermark' },
   ];
+
+  const selectedFeatureName = FEATURE_LABELS[activeTab] || 'Compress IMAGE';
 
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-neutral-200">
@@ -74,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({
           })}
         </nav>
 
-        {/* Zone 3: Primary Actions */}
+        {/* Zone 3: Primary Actions & Selected Feature Name */}
         <div className="flex items-center gap-2.5">
           {hasFiles && (
             <button
@@ -99,19 +112,11 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           )}
 
-          {/* Mobile Tool Indicator / Quick Switcher */}
+          {/* Selected Feature Name (shown on smaller viewports where top nav collapses) */}
           <div className="lg:hidden flex items-center">
-            <button
-              type="button"
-              onClick={() => {
-                const nextIdx = (navItems.findIndex((n) => n.id === activeTab) + 1) % navItems.length;
-                setActiveTab(navItems[nextIdx].id);
-              }}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-neutral-700 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-colors"
-            >
-              <Wrench className="w-3.5 h-3.5 text-neutral-500" />
-              <span>Switch Tool</span>
-            </button>
+            <span className="text-sm font-semibold text-neutral-900 whitespace-nowrap truncate max-w-[180px]">
+              {selectedFeatureName}
+            </span>
           </div>
         </div>
       </div>
