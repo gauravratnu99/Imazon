@@ -9,7 +9,7 @@ import { CropTool } from './components/CropTool';
 import { WatermarkTool } from './components/WatermarkTool';
 import { PhotoEditorTool } from './components/PhotoEditorTool';
 import { ConvertTool } from './components/ConvertTool';
-import { ShieldCheck } from 'lucide-react';
+import { Layers } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('compress');
@@ -64,21 +64,21 @@ export default function App() {
 
       {/* Clean Footer */}
       <footer className="border-t border-neutral-200 bg-white py-8 mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-red-600">Imazon</span>
-            <span aria-hidden="true">·</span>
-            <span>Online Image Optimization, Background Removal, Resizing & Upscaling Suite</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-3 items-center gap-4 text-xs text-neutral-500">
+          <div className="flex items-center justify-center sm:justify-start gap-2.5">
+            <div className="w-7 h-7 rounded-lg bg-red-600 flex items-center justify-center text-white shadow-xs">
+              <Layers className="w-4 h-4 stroke-[2.5]" />
+            </div>
+            <span className="text-base font-extrabold tracking-tight text-red-600">
+              Imazon
+            </span>
           </div>
 
-          <div className="flex items-center gap-1.5 text-neutral-600">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>100% Client-Side Privacy: files never leave your device</span>
-          </div>
-
-          <div className="text-neutral-400">
+          <div className="text-center text-neutral-500">
             © {new Date().getFullYear()} Imazon. All rights reserved.
           </div>
+
+          <div className="hidden sm:block" aria-hidden="true" />
         </div>
       </footer>
     </div>
