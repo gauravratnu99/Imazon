@@ -463,11 +463,11 @@ export const CropTool: React.FC = () => {
     <div className="max-w-6xl mx-auto space-y-6">
       {/* Header */}
       <div className="text-center">
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight font-sans">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight font-sans">
           Crop IMAGE
         </h1>
-        <p className="text-neutral-500 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
-          Crop <strong className="text-neutral-700 font-semibold">JPG, PNG, SVG, GIF or WebP</strong> by dragging the interactive frame, choosing aspect ratios, or defining exact pixel coordinates.
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+          Crop <strong className="text-neutral-700 dark:text-neutral-200 font-semibold">JPG, PNG, SVG, GIF or WebP</strong> by dragging the interactive frame, choosing aspect ratios, or defining exact pixel coordinates.
         </p>
       </div>
 
@@ -476,46 +476,46 @@ export const CropTool: React.FC = () => {
           <DropZone onFilesSelected={handleFiles} />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3">
                 <Crop className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">Interactive Free & Ratio Crop</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Interactive Free & Ratio Crop</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Drag any corner or edge handle to frame your subject, or lock to 1:1, 16:9, 4:3, 4:5, or 9:16 social ratios.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
                 <Maximize2 className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">Rotate, Flip & Pixel Precision</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Rotate, Flip & Pixel Precision</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Rotate 90° or flip horizontally/vertically before cropping, and fine-tune X, Y, width, and height down to the pixel.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">100% Private In-Browser</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">100% Private In-Browser</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Your photos are cropped locally using hardware-accelerated Canvas rendering without leaving your device.
               </p>
             </div>
           </div>
         </div>
       ) : (
-        <div className="bg-white rounded-2xl border border-neutral-200 p-5 sm:p-6 shadow-sm space-y-6">
+        <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 sm:p-6 shadow-sm space-y-6">
           {/* Top Info Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-neutral-200">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-neutral-200 dark:border-neutral-800">
             <div>
-              <h2 className="text-base font-bold text-neutral-900 truncate max-w-md">
+              <h2 className="text-base font-bold text-neutral-900 dark:text-neutral-100 truncate max-w-md">
                 {file.name}
               </h2>
-              <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-500 mt-0.5 font-mono">
+              <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 mt-0.5 font-mono">
                 <span>
                   Canvas: {imgWidth} × {imgHeight} px
                 </span>
@@ -530,8 +530,8 @@ export const CropTool: React.FC = () => {
                 onClick={() => setShowGrid((g) => !g)}
                 className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors ${
                   showGrid
-                    ? 'bg-amber-50 border-amber-200 text-amber-800'
-                    : 'bg-neutral-50 border-neutral-200 text-neutral-600 hover:bg-neutral-100'
+                    ? 'bg-amber-50 dark:bg-amber-950/50 border-amber-200 dark:border-amber-700 text-amber-800 dark:text-amber-300'
+                    : 'bg-neutral-50 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700'
                 }`}
               >
                 <Grid3x3 className="w-3.5 h-3.5" />
@@ -549,7 +549,7 @@ export const CropTool: React.FC = () => {
                   setCroppedBlob(null);
                   setCroppedUrl(null);
                 }}
-                className="px-3 py-1.5 text-xs font-medium text-neutral-600 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-colors"
+                className="px-3 py-1.5 text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-lg transition-colors"
               >
                 Change Image
               </button>
@@ -560,12 +560,12 @@ export const CropTool: React.FC = () => {
             {/* Left / Center: Interactive Crop Workspace */}
             <div className="lg:col-span-8 space-y-3">
               {/* Transform Toolbar */}
-              <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 bg-neutral-50 border border-neutral-200 rounded-xl">
+              <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-2 bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-800 rounded-xl">
                 <div className="flex items-center gap-1.5">
                   <button
                     type="button"
                     onClick={() => handleRotate(-90)}
-                    className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-neutral-700 bg-white border border-neutral-200 hover:bg-neutral-100 rounded-lg transition-colors"
+                    className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-neutral-700 dark:text-neutral-200 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors"
                     title="Rotate 90° Left"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
@@ -574,7 +574,7 @@ export const CropTool: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => handleRotate(90)}
-                    className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-neutral-700 bg-white border border-neutral-200 hover:bg-neutral-100 rounded-lg transition-colors"
+                    className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-neutral-700 dark:text-neutral-200 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors"
                     title="Rotate 90° Right"
                   >
                     <RotateCw className="w-3.5 h-3.5" />
@@ -585,8 +585,8 @@ export const CropTool: React.FC = () => {
                     onClick={() => handleFlip('h')}
                     className={`inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium border rounded-lg transition-colors ${
                       flipH
-                        ? 'bg-amber-50 border-amber-300 text-amber-800'
-                        : 'bg-white border-neutral-200 text-neutral-700 hover:bg-neutral-100'
+                        ? 'bg-amber-50 dark:bg-amber-950/50 border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-300'
+                        : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                     }`}
                     title="Flip Horizontal"
                   >
@@ -598,8 +598,8 @@ export const CropTool: React.FC = () => {
                     onClick={() => handleFlip('v')}
                     className={`inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium border rounded-lg transition-colors ${
                       flipV
-                        ? 'bg-amber-50 border-amber-300 text-amber-800'
-                        : 'bg-white border-neutral-200 text-neutral-700 hover:bg-neutral-100'
+                        ? 'bg-amber-50 dark:bg-amber-950/50 border-amber-300 dark:border-amber-700 text-amber-800 dark:text-amber-300'
+                        : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                     }`}
                     title="Flip Vertical"
                   >
@@ -611,7 +611,7 @@ export const CropTool: React.FC = () => {
                 <button
                   type="button"
                   onClick={resetCropToFull}
-                  className="text-xs font-semibold text-amber-700 hover:text-amber-800 px-2.5 py-1 rounded-lg hover:bg-amber-50 transition-colors"
+                  className="text-xs font-semibold text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 px-2.5 py-1 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-950/40 transition-colors"
                 >
                   Select Full Image
                 </button>
@@ -745,9 +745,9 @@ export const CropTool: React.FC = () => {
                 )}
               </div>
 
-              <div className="text-xs text-neutral-500 flex items-center justify-between px-1">
+              <div className="text-xs text-neutral-500 dark:text-neutral-400 flex items-center justify-between px-1">
                 <span>Drag inside frame to reposition · Drag corner or edge handles to resize</span>
-                <span className="font-mono text-neutral-600">
+                <span className="font-mono text-neutral-600 dark:text-neutral-300">
                   Selection: {crop.width} × {crop.height}
                 </span>
               </div>
@@ -756,12 +756,12 @@ export const CropTool: React.FC = () => {
             {/* Right: Crop Settings, Coordinates & Result */}
             <div className="lg:col-span-4 space-y-5">
               {/* Aspect Ratio Presets */}
-              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-3">
+              <div className="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-800 space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-neutral-800 uppercase tracking-wide">
+                  <span className="text-xs font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide">
                     Aspect Ratio
                   </span>
-                  <span className="text-[11px] text-neutral-500 font-mono">
+                  <span className="text-[11px] text-neutral-500 dark:text-neutral-400 font-mono">
                     {aspectPreset === 'free' ? 'Unlocked' : `Locked (${aspectPreset})`}
                   </span>
                 </div>
@@ -775,7 +775,7 @@ export const CropTool: React.FC = () => {
                       className={`py-2 px-1 text-xs font-semibold rounded-lg border text-center transition-all ${
                         aspectPreset === preset.id
                           ? 'bg-amber-600 border-amber-600 text-white shadow-2xs'
-                          : 'bg-white border-neutral-200 text-neutral-700 hover:bg-neutral-100'
+                          : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                       }`}
                     >
                       {preset.label}
@@ -785,14 +785,14 @@ export const CropTool: React.FC = () => {
               </div>
 
               {/* Exact Pixel Coordinates */}
-              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-3">
-                <span className="text-xs font-bold text-neutral-800 uppercase tracking-wide block">
+              <div className="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-800 space-y-3">
+                <span className="text-xs font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide block">
                   Crop Coordinates (px)
                 </span>
 
                 <div className="grid grid-cols-2 gap-2.5">
                   <div>
-                    <label className="block text-[11px] font-semibold text-neutral-600 mb-1">
+                    <label className="block text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 mb-1">
                       Width (px)
                     </label>
                     <input
@@ -801,11 +801,11 @@ export const CropTool: React.FC = () => {
                       max={imgWidth}
                       value={crop.width || ''}
                       onChange={(e) => updateCropField('width', parseInt(e.target.value, 10))}
-                      className="w-full text-xs font-mono p-2 bg-white border border-neutral-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-amber-500"
+                      className="w-full text-xs font-mono p-2 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-amber-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-neutral-600 mb-1">
+                    <label className="block text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 mb-1">
                       Height (px)
                     </label>
                     <input
@@ -814,11 +814,11 @@ export const CropTool: React.FC = () => {
                       max={imgHeight}
                       value={crop.height || ''}
                       onChange={(e) => updateCropField('height', parseInt(e.target.value, 10))}
-                      className="w-full text-xs font-mono p-2 bg-white border border-neutral-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-amber-500"
+                      className="w-full text-xs font-mono p-2 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-amber-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-neutral-600 mb-1">
+                    <label className="block text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 mb-1">
                       Position X
                     </label>
                     <input
@@ -827,11 +827,11 @@ export const CropTool: React.FC = () => {
                       max={Math.max(0, imgWidth - crop.width)}
                       value={crop.x}
                       onChange={(e) => updateCropField('x', parseInt(e.target.value, 10))}
-                      className="w-full text-xs font-mono p-2 bg-white border border-neutral-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-amber-500"
+                      className="w-full text-xs font-mono p-2 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-amber-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-neutral-600 mb-1">
+                    <label className="block text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 mb-1">
                       Position Y
                     </label>
                     <input
@@ -840,15 +840,15 @@ export const CropTool: React.FC = () => {
                       max={Math.max(0, imgHeight - crop.height)}
                       value={crop.y}
                       onChange={(e) => updateCropField('y', parseInt(e.target.value, 10))}
-                      className="w-full text-xs font-mono p-2 bg-white border border-neutral-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-amber-500"
+                      className="w-full text-xs font-mono p-2 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-amber-500"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Output Format */}
-              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-2.5">
-                <label className="text-xs font-bold text-neutral-800 uppercase tracking-wide block">
+              <div className="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-800 space-y-2.5">
+                <label className="text-xs font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide block">
                   Output Format
                 </label>
                 <select
@@ -858,7 +858,7 @@ export const CropTool: React.FC = () => {
                     setCroppedBlob(null);
                     setCroppedUrl(null);
                   }}
-                  className="w-full text-xs font-medium bg-white border border-neutral-300 rounded-lg p-2 text-neutral-800 focus:outline-none focus:ring-1 focus:ring-amber-500"
+                  className="w-full text-xs font-medium bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg p-2 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-amber-500"
                 >
                   <option value="original">Keep Original Format</option>
                   <option value="image/jpeg">JPG (Standard photo)</option>
@@ -873,7 +873,7 @@ export const CropTool: React.FC = () => {
                   type="button"
                   onClick={executeCrop}
                   disabled={isProcessing || crop.width < 1 || crop.height < 1}
-                  className="w-full py-3 bg-amber-600 hover:bg-amber-700 active:scale-[0.99] disabled:bg-neutral-300 text-white font-bold rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-amber-600 hover:bg-amber-700 active:scale-[0.99] disabled:bg-neutral-300 dark:disabled:bg-neutral-700 text-white font-bold rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2"
                 >
                   {isProcessing ? (
                     <>
@@ -889,18 +889,18 @@ export const CropTool: React.FC = () => {
                 </button>
 
                 {croppedUrl && croppedBlob && (
-                  <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 space-y-3">
+                  <div className="p-4 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 space-y-3">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="inline-flex items-center gap-1.5 font-bold text-emerald-800">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <span className="inline-flex items-center gap-1.5 font-bold text-emerald-800 dark:text-emerald-300">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                         Cropped Result Ready
                       </span>
-                      <span className="font-mono text-emerald-700 font-semibold">
+                      <span className="font-mono text-emerald-700 dark:text-emerald-300 font-semibold">
                         {formatBytes(croppedBlob.size)}
                       </span>
                     </div>
 
-                    <div className="rounded-lg overflow-hidden border border-emerald-200/80 bg-transparency-grid flex items-center justify-center p-2 max-h-40">
+                    <div className="rounded-lg overflow-hidden border border-emerald-200/80 dark:border-emerald-800/80 bg-transparency-grid flex items-center justify-center p-2 max-h-40">
                       <img
                         src={croppedUrl}
                         alt="Cropped result preview"

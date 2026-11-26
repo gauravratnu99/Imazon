@@ -805,10 +805,10 @@ export const PhotoEditorTool: React.FC = () => {
     <div className="max-w-7xl mx-auto space-y-6">
       {/* Header */}
       <div className="text-center">
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight font-sans">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight font-sans">
           Photo Editor
         </h1>
-        <p className="text-neutral-500 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
           Adjust light and color, apply curated filters, rotate or straighten, draw, add captions, and frame your photos directly in the browser.
         </p>
       </div>
@@ -818,58 +818,58 @@ export const PhotoEditorTool: React.FC = () => {
           <DropZone onFilesSelected={handleFiles} />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-colors">
+              <div className="w-9 h-9 rounded-lg bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-3">
                 <SlidersHorizontal className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">Color, Light & Detail</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Color, Light & Detail</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Fine-tune brightness, contrast, saturation, warmth, tint, fade, vignette, blur, and edge sharpness in real time.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-colors">
+              <div className="w-9 h-9 rounded-lg bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-3">
                 <Sparkles className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">1-Click Filters & Transforms</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">1-Click Filters & Transforms</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Apply Vivid, Golden, Arctic, B&W, Noir, or Vintage presets with adjustable intensity, plus straighten, rotate, flip, and aspect framing.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 transition-colors">
+              <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">Draw, Captions & Frames</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Draw, Captions & Frames</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Sketch with the freehand brush, drag custom text captions anywhere, add rounded borders, and export at full native resolution.
               </p>
             </div>
           </div>
         </div>
       ) : (
-        <div className="bg-white rounded-2xl border border-neutral-200 p-4 sm:p-6 shadow-sm space-y-5">
+        <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-4 sm:p-6 shadow-sm space-y-5 transition-colors">
           {/* Top Action Toolbar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-neutral-200">
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-neutral-200 dark:border-neutral-800">
             <div className="min-w-0">
-              <h2 className="text-base font-bold text-neutral-900 truncate max-w-xs sm:max-w-md">
+              <h2 className="text-base font-bold text-neutral-900 dark:text-neutral-100 truncate max-w-xs sm:max-w-md">
                 {file.name}
               </h2>
-              <div className="text-xs text-neutral-500 font-mono mt-0.5">
+              <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono mt-0.5">
                 {outDims.width} × {outDims.height} px · Original: {formatBytes(file.size)}
               </div>
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
               {/* Undo / Redo */}
-              <div className="flex items-center gap-1 bg-neutral-100 p-1 rounded-xl border border-neutral-200">
+              <div className="flex items-center gap-1 bg-neutral-100 dark:bg-neutral-800 p-1 rounded-xl border border-neutral-200 dark:border-neutral-700">
                 <button
                   type="button"
                   onClick={handleUndo}
                   disabled={historyIdx <= 0}
-                  className="p-1.5 text-neutral-700 hover:bg-white disabled:opacity-35 rounded-lg transition-colors"
+                  className="p-1.5 text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-700 disabled:opacity-35 rounded-lg transition-colors"
                   title="Undo"
                 >
                   <Undo2 className="w-4 h-4" />
@@ -878,7 +878,7 @@ export const PhotoEditorTool: React.FC = () => {
                   type="button"
                   onClick={handleRedo}
                   disabled={historyIdx >= history.length - 1}
-                  className="p-1.5 text-neutral-700 hover:bg-white disabled:opacity-35 rounded-lg transition-colors"
+                  className="p-1.5 text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-700 disabled:opacity-35 rounded-lg transition-colors"
                   title="Redo"
                 >
                   <Redo2 className="w-4 h-4" />
@@ -896,7 +896,7 @@ export const PhotoEditorTool: React.FC = () => {
                 className={`inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl border transition-colors select-none ${
                   showOriginal
                     ? 'bg-purple-600 border-purple-600 text-white'
-                    : 'bg-neutral-50 border-neutral-200 text-neutral-700 hover:bg-neutral-100'
+                    : 'bg-neutral-50 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-700'
                 }`}
               >
                 <Eye className="w-3.5 h-3.5" />
@@ -907,7 +907,7 @@ export const PhotoEditorTool: React.FC = () => {
               <button
                 type="button"
                 onClick={handleResetAll}
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-neutral-600 bg-neutral-100 hover:bg-neutral-200 rounded-xl transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-neutral-600 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-xl transition-colors"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Reset</span>
@@ -922,7 +922,7 @@ export const PhotoEditorTool: React.FC = () => {
                   setImageUrl(null);
                   sourceImgRef.current = null;
                 }}
-                className="px-3 py-2 text-xs font-medium text-neutral-600 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200 rounded-xl transition-colors"
+                className="px-3 py-2 text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-xl transition-colors"
               >
                 Change Photo
               </button>
@@ -976,7 +976,7 @@ export const PhotoEditorTool: React.FC = () => {
             {/* RIGHT: Tabbed Photo Editing Controls */}
             <div className="lg:col-span-5 xl:col-span-4 space-y-4">
               {/* Tool Category Tabs */}
-              <div className="grid grid-cols-5 gap-1 p-1 bg-neutral-100 rounded-xl border border-neutral-200">
+              <div className="grid grid-cols-5 gap-1 p-1 bg-neutral-100 dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
                 {(
                   [
                     { id: 'adjust', label: 'Adjust', icon: SlidersHorizontal },
@@ -995,8 +995,8 @@ export const PhotoEditorTool: React.FC = () => {
                       onClick={() => setActiveTab(tab.id)}
                       className={`flex flex-col items-center justify-center py-2 px-1 rounded-lg text-[11px] font-semibold transition-all ${
                         isActive
-                          ? 'bg-white text-purple-700 shadow-2xs border border-neutral-200/80'
-                          : 'text-neutral-600 hover:text-neutral-900'
+                          ? 'bg-white dark:bg-neutral-900 text-purple-700 dark:text-purple-400 shadow-2xs border border-neutral-200/80 dark:border-neutral-700'
+                          : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100'
                       }`}
                     >
                       <Icon className="w-4 h-4 mb-0.5" />
@@ -1007,18 +1007,18 @@ export const PhotoEditorTool: React.FC = () => {
               </div>
 
               {/* Active Tool Panel Content */}
-              <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200 space-y-4 max-h-[420px] overflow-y-auto">
+              <div className="p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-800 space-y-4 max-h-[420px] overflow-y-auto">
                 {/* 1. ADJUST PANEL */}
                 {activeTab === 'adjust' && (
                   <div className="space-y-3.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-neutral-800 uppercase tracking-wide">
+                      <span className="text-xs font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide">
                         Light & Color
                       </span>
                       <button
                         type="button"
                         onClick={handleAutoEnhance}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold text-purple-700 bg-purple-100 hover:bg-purple-200 rounded-lg transition-colors"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-950/60 hover:bg-purple-200 dark:hover:bg-purple-900/60 rounded-lg transition-colors"
                       >
                         <Wand2 className="w-3 h-3" />
                         <span>Auto Enhance</span>
@@ -1039,9 +1039,9 @@ export const PhotoEditorTool: React.FC = () => {
                       ] as { key: keyof Adjustments; label: string; min: number; max: number }[]
                     ).map((ctrl) => (
                       <div key={ctrl.key}>
-                        <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                        <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                           <span>{ctrl.label}</span>
-                          <span className="font-mono font-bold text-purple-700 tabular-nums">
+                          <span className="font-mono font-bold text-purple-700 dark:text-purple-400 tabular-nums">
                             {editorState.adjustments[ctrl.key] > 0 && ctrl.min < 0 ? '+' : ''}
                             {editorState.adjustments[ctrl.key]}
                             {ctrl.key === 'blur' ? 'px' : ''}
@@ -1057,7 +1057,7 @@ export const PhotoEditorTool: React.FC = () => {
                           }
                           onMouseUp={commitAdjustmentSlider}
                           onTouchEnd={commitAdjustmentSlider}
-                          className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                          className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-purple-600"
                         />
                       </div>
                     ))}
@@ -1068,9 +1068,9 @@ export const PhotoEditorTool: React.FC = () => {
                 {activeTab === 'filters' && (
                   <div className="space-y-4">
                     <div>
-                      <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                      <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                         <span>Filter Intensity</span>
-                        <span className="font-mono font-bold text-purple-700">
+                        <span className="font-mono font-bold text-purple-700 dark:text-purple-400">
                           {editorState.filterIntensity}%
                         </span>
                       </div>
@@ -1087,7 +1087,7 @@ export const PhotoEditorTool: React.FC = () => {
                         }
                         onMouseUp={commitAdjustmentSlider}
                         onTouchEnd={commitAdjustmentSlider}
-                        className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                        className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-purple-600"
                       />
                     </div>
 
@@ -1104,7 +1104,7 @@ export const PhotoEditorTool: React.FC = () => {
                             className={`flex items-center justify-between px-3 py-2.5 rounded-xl border text-xs font-semibold transition-all ${
                               isActive
                                 ? 'bg-purple-600 border-purple-600 text-white shadow-2xs'
-                                : 'bg-white border-neutral-200 text-neutral-700 hover:border-neutral-300'
+                                : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:border-neutral-300 dark:hover:border-neutral-600'
                             }`}
                           >
                             <span>{preset.name}</span>
@@ -1120,7 +1120,7 @@ export const PhotoEditorTool: React.FC = () => {
                 {activeTab === 'transform' && (
                   <div className="space-y-4">
                     <div>
-                      <span className="text-xs font-bold text-neutral-800 uppercase tracking-wide block mb-2">
+                      <span className="text-xs font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide block mb-2">
                         Rotate & Flip
                       </span>
                       <div className="grid grid-cols-4 gap-2">
@@ -1132,7 +1132,7 @@ export const PhotoEditorTool: React.FC = () => {
                               rotation: (editorState.rotation + 270) % 360,
                             })
                           }
-                          className="flex flex-col items-center justify-center py-2.5 px-2 bg-white border border-neutral-200 hover:bg-neutral-100 rounded-xl text-[11px] font-semibold text-neutral-700"
+                          className="flex flex-col items-center justify-center py-2.5 px-2 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-xl text-[11px] font-semibold text-neutral-700 dark:text-neutral-300"
                         >
                           <RotateCcw className="w-4 h-4 mb-1" />
                           <span>-90°</span>
@@ -1145,7 +1145,7 @@ export const PhotoEditorTool: React.FC = () => {
                               rotation: (editorState.rotation + 90) % 360,
                             })
                           }
-                          className="flex flex-col items-center justify-center py-2.5 px-2 bg-white border border-neutral-200 hover:bg-neutral-100 rounded-xl text-[11px] font-semibold text-neutral-700"
+                          className="flex flex-col items-center justify-center py-2.5 px-2 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-xl text-[11px] font-semibold text-neutral-700 dark:text-neutral-300"
                         >
                           <RotateCw className="w-4 h-4 mb-1" />
                           <span>+90°</span>
@@ -1158,7 +1158,7 @@ export const PhotoEditorTool: React.FC = () => {
                           className={`flex flex-col items-center justify-center py-2.5 px-2 border rounded-xl text-[11px] font-semibold transition-colors ${
                             editorState.flipH
                               ? 'bg-purple-600 border-purple-600 text-white'
-                              : 'bg-white border-neutral-200 hover:bg-neutral-100 text-neutral-700'
+                              : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300'
                           }`}
                         >
                           <FlipHorizontal className="w-4 h-4 mb-1" />
@@ -1172,7 +1172,7 @@ export const PhotoEditorTool: React.FC = () => {
                           className={`flex flex-col items-center justify-center py-2.5 px-2 border rounded-xl text-[11px] font-semibold transition-colors ${
                             editorState.flipV
                               ? 'bg-purple-600 border-purple-600 text-white'
-                              : 'bg-white border-neutral-200 hover:bg-neutral-100 text-neutral-700'
+                              : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300'
                           }`}
                         >
                           <FlipVertical className="w-4 h-4 mb-1" />
@@ -1183,9 +1183,9 @@ export const PhotoEditorTool: React.FC = () => {
 
                     {/* Straighten Angle */}
                     <div>
-                      <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                      <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                         <span>Straighten Angle</span>
-                        <span className="font-mono font-bold text-purple-700">
+                        <span className="font-mono font-bold text-purple-700 dark:text-purple-400">
                           {editorState.straighten}°
                         </span>
                       </div>
@@ -1202,13 +1202,13 @@ export const PhotoEditorTool: React.FC = () => {
                         }
                         onMouseUp={commitAdjustmentSlider}
                         onTouchEnd={commitAdjustmentSlider}
-                        className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                        className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-purple-600"
                       />
                     </div>
 
                     {/* Aspect Framing */}
                     <div>
-                      <span className="text-xs font-bold text-neutral-800 uppercase tracking-wide block mb-2">
+                      <span className="text-xs font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide block mb-2">
                         Aspect Frame Crop
                       </span>
                       <div className="grid grid-cols-3 gap-1.5">
@@ -1222,7 +1222,7 @@ export const PhotoEditorTool: React.FC = () => {
                             className={`py-2 px-2 rounded-lg border text-xs font-semibold transition-all ${
                               editorState.aspectCrop === opt.id
                                 ? 'bg-purple-600 border-purple-600 text-white'
-                                : 'bg-white border-neutral-200 text-neutral-700 hover:bg-neutral-100'
+                                : 'bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                             }`}
                           >
                             {opt.label}
@@ -1237,10 +1237,10 @@ export const PhotoEditorTool: React.FC = () => {
                 {activeTab === 'annotate' && (
                   <div className="space-y-4">
                     {/* Brush Section */}
-                    <div className="p-3 bg-white rounded-xl border border-neutral-200 space-y-3">
+                    <div className="p-3 bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-700 space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
-                          <PenTool className="w-3.5 h-3.5 text-purple-600" />
+                        <span className="text-xs font-bold text-neutral-900 dark:text-neutral-100 flex items-center gap-1.5">
+                          <PenTool className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                           <span>Freehand Brush</span>
                         </span>
                         <button
@@ -1249,7 +1249,7 @@ export const PhotoEditorTool: React.FC = () => {
                           className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors ${
                             brushActive
                               ? 'bg-purple-600 text-white'
-                              : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                              : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-700'
                           }`}
                         >
                           {brushActive ? 'Drawing ON' : 'Enable Brush'}
@@ -1267,7 +1267,7 @@ export const PhotoEditorTool: React.FC = () => {
                                 className={`w-5 h-5 rounded-full border ${
                                   brushColor === c
                                     ? 'border-purple-600 ring-2 ring-purple-400 scale-110'
-                                    : 'border-neutral-300'
+                                    : 'border-neutral-300 dark:border-neutral-600'
                                 }`}
                                 style={{ backgroundColor: c }}
                               />
@@ -1278,7 +1278,7 @@ export const PhotoEditorTool: React.FC = () => {
                           <button
                             type="button"
                             onClick={() => commitState({ ...editorState, strokes: [] })}
-                            className="text-[11px] font-medium text-red-600 hover:underline"
+                            className="text-[11px] font-medium text-red-600 dark:text-red-400 hover:underline"
                           >
                             Clear Drawings
                           </button>
@@ -1287,7 +1287,7 @@ export const PhotoEditorTool: React.FC = () => {
 
                       <div className="grid grid-cols-2 gap-2">
                         <div>
-                          <div className="flex justify-between text-[11px] text-neutral-600 mb-0.5">
+                          <div className="flex justify-between text-[11px] text-neutral-600 dark:text-neutral-400 mb-0.5">
                             <span>Size</span>
                             <span className="font-mono font-semibold">{brushSizePct}%</span>
                           </div>
@@ -1298,11 +1298,11 @@ export const PhotoEditorTool: React.FC = () => {
                             step="0.2"
                             value={brushSizePct}
                             onChange={(e) => setBrushSizePct(parseFloat(e.target.value))}
-                            className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                            className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-purple-600"
                           />
                         </div>
                         <div>
-                          <div className="flex justify-between text-[11px] text-neutral-600 mb-0.5">
+                          <div className="flex justify-between text-[11px] text-neutral-600 dark:text-neutral-400 mb-0.5">
                             <span>Opacity</span>
                             <span className="font-mono font-semibold">
                               {Math.round(brushOpacity * 100)}%
@@ -1314,17 +1314,17 @@ export const PhotoEditorTool: React.FC = () => {
                             max="100"
                             value={Math.round(brushOpacity * 100)}
                             onChange={(e) => setBrushOpacity(parseInt(e.target.value, 10) / 100)}
-                            className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                            className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-purple-600"
                           />
                         </div>
                       </div>
                     </div>
 
                     {/* Text Caption Section */}
-                    <div className="p-3 bg-white rounded-xl border border-neutral-200 space-y-3">
+                    <div className="p-3 bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-700 space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-neutral-900 flex items-center gap-1.5">
-                          <Type className="w-3.5 h-3.5 text-purple-600" />
+                        <span className="text-xs font-bold text-neutral-900 dark:text-neutral-100 flex items-center gap-1.5">
+                          <Type className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
                           <span>Text Captions</span>
                         </span>
                         <button
@@ -1338,13 +1338,13 @@ export const PhotoEditorTool: React.FC = () => {
                       </div>
 
                       {selectedText ? (
-                        <div className="space-y-2.5 pt-2 border-t border-neutral-100">
+                        <div className="space-y-2.5 pt-2 border-t border-neutral-100 dark:border-neutral-800">
                           <input
                             type="text"
                             value={selectedText.text}
                             onChange={(e) => updateSelectedText({ text: e.target.value })}
                             onBlur={() => commitState(editorState)}
-                            className="w-full text-xs p-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500"
+                            className="w-full text-xs p-2 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500"
                             placeholder="Write caption..."
                           />
 
@@ -1356,10 +1356,10 @@ export const PhotoEditorTool: React.FC = () => {
                                 onChange={(e) =>
                                   updateSelectedText({ color: e.target.value }, true)
                                 }
-                                className="w-6 h-6 rounded border border-neutral-300 cursor-pointer"
+                                className="w-6 h-6 rounded border border-neutral-300 dark:border-neutral-600 bg-transparent cursor-pointer"
                                 title="Text Color"
                               />
-                              <label className="inline-flex items-center gap-1 text-[11px] text-neutral-700 cursor-pointer">
+                              <label className="inline-flex items-center gap-1 text-[11px] text-neutral-700 dark:text-neutral-300 cursor-pointer">
                                 <input
                                   type="checkbox"
                                   checked={selectedText.bgEnabled}
@@ -1381,7 +1381,7 @@ export const PhotoEditorTool: React.FC = () => {
                                 commitState({ ...editorState, texts: remaining });
                                 setSelectedTextId(remaining[0]?.id || null);
                               }}
-                              className="inline-flex items-center gap-1 text-[11px] text-red-600 hover:underline"
+                              className="inline-flex items-center gap-1 text-[11px] text-red-600 dark:text-red-400 hover:underline"
                             >
                               <Trash2 className="w-3 h-3" />
                               <span>Delete</span>
@@ -1389,7 +1389,7 @@ export const PhotoEditorTool: React.FC = () => {
                           </div>
 
                           <div>
-                            <div className="flex justify-between text-[11px] text-neutral-600 mb-0.5">
+                            <div className="flex justify-between text-[11px] text-neutral-600 dark:text-neutral-400 mb-0.5">
                               <span>Text Size</span>
                               <span className="font-mono font-semibold">
                                 {selectedText.sizePct}%
@@ -1406,12 +1406,12 @@ export const PhotoEditorTool: React.FC = () => {
                               }
                               onMouseUp={() => commitState(editorState)}
                               onTouchEnd={() => commitState(editorState)}
-                              className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                              className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-purple-600"
                             />
                           </div>
                         </div>
                       ) : (
-                        <p className="text-[11px] text-neutral-500">
+                        <p className="text-[11px] text-neutral-500 dark:text-neutral-400">
                           Click "Add Text" to place a draggable caption onto your photo.
                         </p>
                       )}
@@ -1423,9 +1423,9 @@ export const PhotoEditorTool: React.FC = () => {
                 {activeTab === 'frame' && (
                   <div className="space-y-4">
                     <div>
-                      <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                      <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                         <span>Border Frame Width</span>
-                        <span className="font-mono font-bold text-purple-700">
+                        <span className="font-mono font-bold text-purple-700 dark:text-purple-400">
                           {editorState.borderWidthPct}%
                         </span>
                       </div>
@@ -1443,12 +1443,12 @@ export const PhotoEditorTool: React.FC = () => {
                         }
                         onMouseUp={commitAdjustmentSlider}
                         onTouchEnd={commitAdjustmentSlider}
-                        className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                        className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-purple-600"
                       />
                     </div>
 
                     <div>
-                      <span className="text-xs font-semibold text-neutral-700 block mb-1.5">
+                      <span className="text-xs font-semibold text-neutral-700 dark:text-neutral-300 block mb-1.5">
                         Border Color
                       </span>
                       <div className="flex items-center gap-2">
@@ -1460,7 +1460,7 @@ export const PhotoEditorTool: React.FC = () => {
                             className={`w-7 h-7 rounded-lg border ${
                               editorState.borderColor === c
                                 ? 'border-purple-600 ring-2 ring-purple-400 scale-105'
-                                : 'border-neutral-300'
+                                : 'border-neutral-300 dark:border-neutral-600'
                             }`}
                             style={{ backgroundColor: c }}
                           />
@@ -1471,15 +1471,15 @@ export const PhotoEditorTool: React.FC = () => {
                           onChange={(e) =>
                             commitState({ ...editorState, borderColor: e.target.value })
                           }
-                          className="w-7 h-7 rounded-lg border border-neutral-300 cursor-pointer"
+                          className="w-7 h-7 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-transparent cursor-pointer"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                      <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                         <span>Corner Roundness</span>
-                        <span className="font-mono font-bold text-purple-700">
+                        <span className="font-mono font-bold text-purple-700 dark:text-purple-400">
                           {editorState.cornerRadiusPct}%
                         </span>
                       </div>
@@ -1497,7 +1497,7 @@ export const PhotoEditorTool: React.FC = () => {
                         }
                         onMouseUp={commitAdjustmentSlider}
                         onTouchEnd={commitAdjustmentSlider}
-                        className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                        className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-purple-600"
                       />
                     </div>
                   </div>
@@ -1505,16 +1505,16 @@ export const PhotoEditorTool: React.FC = () => {
               </div>
 
               {/* Export & Download Card */}
-              <div className="p-4 rounded-xl bg-white border border-neutral-200 space-y-3">
+              <div className="p-4 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 space-y-3">
                 <div className="grid grid-cols-2 gap-2.5">
                   <div>
-                    <label className="block text-[11px] font-semibold text-neutral-600 mb-1">
+                    <label className="block text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 mb-1">
                       Export Format
                     </label>
                     <select
                       value={outputFormat}
                       onChange={(e) => setOutputFormat(e.target.value as OutputFormat)}
-                      className="w-full text-xs font-medium bg-neutral-50 border border-neutral-300 rounded-lg p-2 text-neutral-800"
+                      className="w-full text-xs font-medium bg-neutral-50 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-lg p-2 text-neutral-800 dark:text-neutral-100"
                     >
                       <option value="original">Original Format</option>
                       <option value="image/jpeg">JPG</option>
@@ -1524,9 +1524,9 @@ export const PhotoEditorTool: React.FC = () => {
                   </div>
 
                   <div>
-                    <div className="flex justify-between text-[11px] font-semibold text-neutral-600 mb-1">
+                    <div className="flex justify-between text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 mb-1">
                       <span>Quality</span>
-                      <span className="font-mono text-purple-700">{exportQuality}%</span>
+                      <span className="font-mono text-purple-700 dark:text-purple-400">{exportQuality}%</span>
                     </div>
                     <input
                       type="range"
@@ -1534,7 +1534,7 @@ export const PhotoEditorTool: React.FC = () => {
                       max="100"
                       value={exportQuality}
                       onChange={(e) => setExportQuality(parseInt(e.target.value, 10))}
-                      className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-purple-600 mt-2.5"
+                      className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-purple-600 mt-2.5"
                     />
                   </div>
                 </div>
@@ -1543,7 +1543,7 @@ export const PhotoEditorTool: React.FC = () => {
                   type="button"
                   onClick={handleDownload}
                   disabled={isExporting}
-                  className="w-full py-3 bg-purple-600 hover:bg-purple-700 active:scale-[0.99] disabled:bg-neutral-300 text-white font-bold rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-purple-600 hover:bg-purple-700 active:scale-[0.99] disabled:bg-neutral-300 dark:disabled:bg-neutral-700 text-white font-bold rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2"
                 >
                   {isExporting ? (
                     <>

@@ -252,11 +252,11 @@ export const CompressorApp: React.FC<CompressorAppProps> = ({ onStateChange }) =
 
       {/* Hero Header */}
       <div className="text-center pt-2 pb-1">
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight font-sans">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight font-sans">
           Compress IMAGE
         </h1>
-        <p className="text-neutral-500 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
-          Compress <strong className="text-neutral-700 font-semibold">JPG, PNG, SVG or GIF</strong> with the best quality and compression ratio. Reduce filesize of multiple images at once.
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+          Compress <strong className="text-neutral-700 dark:text-neutral-200 font-semibold">JPG, PNG, SVG or GIF</strong> with the best quality and compression ratio. Reduce filesize of multiple images at once.
         </p>
       </div>
 
@@ -267,32 +267,32 @@ export const CompressorApp: React.FC<CompressorAppProps> = ({ onStateChange }) =
 
           {/* Value Props / Anti-slop clean proof highlights */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-3">
                 <Sparkles className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">Best Quality & Size Ratio</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Best Quality & Size Ratio</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Smart perceptual compression algorithms remove redundant byte bloat and EXIF data while preserving pixel-perfect visual fidelity.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
                 <Zap className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">Batch Processing</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Batch Processing</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Upload tens of images simultaneously. Process in parallel and download individually or packaged into a single clean ZIP archive.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">100% Private & In-Browser</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">100% Private & In-Browser</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Your images never leave your computer. Everything is processed directly in your browser using high-speed client-side rendering.
               </p>
             </div>
@@ -322,12 +322,12 @@ export const CompressorApp: React.FC<CompressorAppProps> = ({ onStateChange }) =
 
           {/* Batch Images List */}
           <div className="space-y-3">
-            <div className="flex items-center justify-between text-xs font-semibold text-neutral-700 px-1">
+            <div className="flex items-center justify-between text-xs font-semibold text-neutral-700 dark:text-neutral-300 px-1">
               <span>Selected Images ({items.length})</span>
               <button
                 type="button"
                 onClick={() => hiddenFileInputRef.current?.click()}
-                className="inline-flex items-center gap-1 text-rose-600 hover:text-rose-700 font-medium"
+                className="inline-flex items-center gap-1 text-rose-600 dark:text-rose-400 hover:text-rose-700 dark:hover:text-rose-300 font-medium"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add more images</span>

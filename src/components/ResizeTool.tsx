@@ -106,10 +106,10 @@ export const ResizeTool: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="text-center">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight">
           Resize IMAGE
         </h1>
-        <p className="text-neutral-500 text-sm mt-1 max-w-lg mx-auto">
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm mt-1 max-w-lg mx-auto">
           Resize JPG, PNG, SVG or WebP by defining new height and width pixels or percentages.
         </p>
       </div>
@@ -117,11 +117,11 @@ export const ResizeTool: React.FC = () => {
       {!file ? (
         <DropZone onFilesSelected={handleFiles} />
       ) : (
-        <div className="bg-white rounded-2xl border border-neutral-200 p-6 shadow-sm space-y-6">
+        <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 shadow-sm space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             {/* Preview */}
             <div className="flex flex-col items-center">
-              <div className="w-full max-h-72 bg-neutral-100 rounded-xl overflow-hidden border border-neutral-200 flex items-center justify-center p-2 bg-transparency-grid">
+              <div className="w-full max-h-72 bg-neutral-100 dark:bg-neutral-800 rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-700 flex items-center justify-center p-2 bg-transparency-grid">
                 <img
                   src={resizedUrl || imageUrl!}
                   alt="Resize target"
@@ -129,21 +129,21 @@ export const ResizeTool: React.FC = () => {
                   className="max-h-64 object-contain"
                 />
               </div>
-              <div className="mt-2 text-xs text-neutral-500 font-mono">
+              <div className="mt-2 text-xs text-neutral-500 dark:text-neutral-400 font-mono">
                 Original: {originalWidth} × {originalHeight} px ({formatBytes(file.size)})
               </div>
             </div>
 
             {/* Controls */}
             <div className="space-y-4">
-              <div className="flex items-center justify-between pb-2 border-b border-neutral-200">
-                <span className="text-sm font-bold text-neutral-900">Resize Settings</span>
+              <div className="flex items-center justify-between pb-2 border-b border-neutral-200 dark:border-neutral-800">
+                <span className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Resize Settings</span>
                 <button
                   onClick={() => setMaintainAspect(!maintainAspect)}
                   className={`inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-md border font-medium ${
                     maintainAspect
-                      ? 'bg-blue-50 border-blue-200 text-blue-700'
-                      : 'bg-neutral-100 border-neutral-200 text-neutral-600'
+                      ? 'bg-blue-50 dark:bg-blue-950/50 border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300'
+                      : 'bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-neutral-600 dark:text-neutral-300'
                   }`}
                 >
                   {maintainAspect ? <Lock className="w-3 h-3" /> : <Unlock className="w-3 h-3" />}
@@ -154,32 +154,32 @@ export const ResizeTool: React.FC = () => {
               {/* Pixel inputs */}
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                  <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
                     Width (px)
                   </label>
                   <input
                     type="number"
                     value={targetWidth || ''}
                     onChange={(e) => handleWidthChange(parseInt(e.target.value, 10) || 0)}
-                    className="w-full text-sm font-mono p-2 border border-neutral-300 rounded-lg focus:ring-1 focus:ring-rose-500"
+                    className="w-full text-sm font-mono p-2 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-rose-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                  <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
                     Height (px)
                   </label>
                   <input
                     type="number"
                     value={targetHeight || ''}
                     onChange={(e) => handleHeightChange(parseInt(e.target.value, 10) || 0)}
-                    className="w-full text-sm font-mono p-2 border border-neutral-300 rounded-lg focus:ring-1 focus:ring-rose-500"
+                    className="w-full text-sm font-mono p-2 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-rose-500"
                   />
                 </div>
               </div>
 
               {/* Percentage Presets */}
               <div>
-                <span className="block text-xs font-semibold text-neutral-700 mb-1.5">
+                <span className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1.5">
                   Or Quick Percentage Presets
                 </span>
                 <div className="flex items-center gap-2">
@@ -191,7 +191,7 @@ export const ResizeTool: React.FC = () => {
                       className={`flex-1 py-1.5 text-xs font-semibold rounded-md border transition-all ${
                         scalePercent === pct
                           ? 'bg-blue-600 border-blue-600 text-white'
-                          : 'bg-neutral-50 hover:bg-neutral-100 border-neutral-200 text-neutral-700'
+                          : 'bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300'
                       }`}
                     >
                       {pct}%
@@ -239,7 +239,7 @@ export const ResizeTool: React.FC = () => {
                     setImageUrl(null);
                     setResizedBlob(null);
                   }}
-                  className="w-full py-1.5 text-xs font-medium text-neutral-500 hover:text-neutral-800"
+                  className="w-full py-1.5 text-xs font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200"
                 >
                   Choose another image
                 </button>

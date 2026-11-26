@@ -617,11 +617,11 @@ export const WatermarkTool: React.FC = () => {
 
       {/* Page Title */}
       <div className="text-center">
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight font-sans">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight font-sans">
           Watermark IMAGE
         </h1>
-        <p className="text-neutral-500 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
-          Upload the photo(s) you want to protect, then add your own <strong className="text-neutral-700 font-semibold">Watermark Image / Logo</strong> or write custom <strong className="text-neutral-700 font-semibold">Watermark Text</strong>.
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+          Upload the photo(s) you want to protect, then add your own <strong className="text-neutral-700 dark:text-neutral-200 font-semibold">Watermark Image / Logo</strong> or write custom <strong className="text-neutral-700 dark:text-neutral-200 font-semibold">Watermark Text</strong>.
         </p>
       </div>
 
@@ -629,17 +629,17 @@ export const WatermarkTool: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* LEFT PANEL (7 cols): Photo Upload & Live Interactive Watermark Canvas */}
         <div className="lg:col-span-7 xl:col-span-8 space-y-4">
-          <div className="bg-white rounded-2xl border border-neutral-200 p-5 shadow-sm space-y-4">
-            <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
+          <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 shadow-sm space-y-4">
+            <div className="flex items-center justify-between border-b border-neutral-100 dark:border-neutral-800 pb-3">
               <div className="flex items-center gap-2">
                 <span className="w-6 h-6 rounded-md bg-teal-600 text-white text-xs font-bold flex items-center justify-center">
                   1
                 </span>
                 <div>
-                  <h2 className="text-sm font-bold text-neutral-900">
+                  <h2 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
                     Target Photo(s) to Watermark
                   </h2>
-                  <p className="text-[11px] text-neutral-500">
+                  <p className="text-[11px] text-neutral-500 dark:text-neutral-400">
                     {selectedPhoto
                       ? 'Drag watermark directly on the photo preview to position it'
                       : 'Upload the image(s) where the watermark will be stamped'}
@@ -652,7 +652,7 @@ export const WatermarkTool: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => baseInputRef.current?.click()}
-                    className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-teal-700 bg-teal-50 hover:bg-teal-100 rounded-lg transition-colors"
+                    className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950/60 hover:bg-teal-100 dark:hover:bg-teal-900/60 rounded-lg transition-colors"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     <span>Add Photo</span>
@@ -660,7 +660,7 @@ export const WatermarkTool: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleClearAllPhotos}
-                    className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-neutral-600 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-colors"
+                    className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-neutral-600 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-lg transition-colors"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                     <span>Clear</span>
@@ -687,11 +687,11 @@ export const WatermarkTool: React.FC = () => {
                 onClick={() => baseInputRef.current?.click()}
                 className={`border-2 border-dashed rounded-2xl p-10 sm:p-14 text-center cursor-pointer transition-all ${
                   isDraggingBase
-                    ? 'border-teal-500 bg-teal-50/50 scale-[1.005]'
-                    : 'border-neutral-300 hover:border-teal-400 bg-neutral-50/60 hover:bg-neutral-50'
+                    ? 'border-teal-500 bg-teal-50/50 dark:bg-teal-950/30 scale-[1.005]'
+                    : 'border-neutral-300 dark:border-neutral-700 hover:border-teal-400 dark:hover:border-teal-500 bg-neutral-50/60 dark:bg-neutral-800/40 hover:bg-neutral-50 dark:hover:bg-neutral-800/70'
                 }`}
               >
-                <div className="w-16 h-16 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-4 ring-8 ring-teal-50/50">
+                <div className="w-16 h-16 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center mx-auto mb-4 ring-8 ring-teal-50/50 dark:ring-teal-950/30">
                   <UploadCloud className="w-8 h-8" />
                 </div>
 
@@ -703,18 +703,18 @@ export const WatermarkTool: React.FC = () => {
                   <span>Select Photo(s) to Watermark</span>
                 </button>
 
-                <p className="text-xs text-neutral-500 mb-4">
+                <p className="text-xs text-neutral-500 dark:text-neutral-400 mb-4">
                   or drag & drop JPG, PNG, SVG, WebP, or GIF images here
                 </p>
 
-                <div className="pt-3 border-t border-neutral-200/80 flex justify-center">
+                <div className="pt-3 border-t border-neutral-200/80 dark:border-neutral-700/80 flex justify-center">
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleLoadSamplePhoto();
                     }}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-neutral-700 bg-white hover:bg-neutral-100 border border-neutral-200 rounded-lg transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-neutral-700 dark:text-neutral-200 bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 rounded-lg transition-colors"
                   >
                     <Sparkles className="w-3.5 h-3.5 text-amber-500" />
                     <span>Try with a sample photo</span>
@@ -752,8 +752,8 @@ export const WatermarkTool: React.FC = () => {
                 </div>
 
                 {/* Selected Photo Metadata & Multi-Photo Thumbnail Strip */}
-                <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-neutral-500 px-1">
-                  <span className="font-medium text-neutral-700 truncate max-w-xs">
+                <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-neutral-500 dark:text-neutral-400 px-1">
+                  <span className="font-medium text-neutral-700 dark:text-neutral-200 truncate max-w-xs">
                     {selectedPhoto.name}
                   </span>
                   <span className="font-mono tabular-nums">
@@ -762,8 +762,8 @@ export const WatermarkTool: React.FC = () => {
                 </div>
 
                 {photos.length > 1 && (
-                  <div className="pt-2 border-t border-neutral-100">
-                    <div className="text-[11px] font-semibold text-neutral-600 mb-2">
+                  <div className="pt-2 border-t border-neutral-100 dark:border-neutral-800">
+                    <div className="text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 mb-2">
                       Uploaded Photos ({photos.length}) — click to preview:
                     </div>
                     <div className="flex items-center gap-2 overflow-x-auto pb-1">
@@ -776,7 +776,7 @@ export const WatermarkTool: React.FC = () => {
                             className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 shrink-0 cursor-pointer group transition-all ${
                               isSel
                                 ? 'border-teal-600 ring-2 ring-teal-500/30'
-                                : 'border-neutral-200 hover:border-neutral-300'
+                                : 'border-neutral-200 dark:border-neutral-700 hover:border-neutral-300 dark:hover:border-neutral-600'
                             }`}
                           >
                             <img
@@ -809,31 +809,31 @@ export const WatermarkTool: React.FC = () => {
 
         {/* RIGHT PANEL (5 cols): Watermark Area (Text or Image Upload + Placement & Export) */}
         <div className="lg:col-span-5 xl:col-span-4 space-y-4">
-          <div className="bg-white rounded-2xl border border-neutral-200 p-5 shadow-sm space-y-5">
+          <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 shadow-sm space-y-5">
             {/* Panel Header */}
-            <div className="flex items-center gap-2 border-b border-neutral-100 pb-3">
+            <div className="flex items-center gap-2 border-b border-neutral-100 dark:border-neutral-800 pb-3">
               <span className="w-6 h-6 rounded-md bg-teal-600 text-white text-xs font-bold flex items-center justify-center">
                 2
               </span>
               <div>
-                <h2 className="text-sm font-bold text-neutral-900">
+                <h2 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
                   Your Watermark
                 </h2>
-                <p className="text-[11px] text-neutral-500">
+                <p className="text-[11px] text-neutral-500 dark:text-neutral-400">
                   Write watermark text or upload your own watermark image
                 </p>
               </div>
             </div>
 
             {/* Watermark Mode Selector: Text vs Image Upload */}
-            <div className="grid grid-cols-2 gap-1.5 p-1 bg-neutral-100 rounded-xl border border-neutral-200">
+            <div className="grid grid-cols-2 gap-1.5 p-1 bg-neutral-100 dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
               <button
                 type="button"
                 onClick={() => setConfig((prev) => ({ ...prev, type: 'text' }))}
                 className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-semibold transition-all ${
                   config.type === 'text'
-                    ? 'bg-white text-teal-700 shadow-2xs border border-neutral-200/80'
-                    : 'text-neutral-600 hover:text-neutral-900'
+                    ? 'bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-300 shadow-2xs border border-neutral-200/80 dark:border-neutral-700'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100'
                 }`}
               >
                 <Type className="w-3.5 h-3.5" />
@@ -845,8 +845,8 @@ export const WatermarkTool: React.FC = () => {
                 onClick={() => setConfig((prev) => ({ ...prev, type: 'image' }))}
                 className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-semibold transition-all ${
                   config.type === 'image'
-                    ? 'bg-white text-teal-700 shadow-2xs border border-neutral-200/80'
-                    : 'text-neutral-600 hover:text-neutral-900'
+                    ? 'bg-white dark:bg-neutral-900 text-teal-700 dark:text-teal-300 shadow-2xs border border-neutral-200/80 dark:border-neutral-700'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100'
                 }`}
               >
                 <ImageIcon className="w-3.5 h-3.5" />
@@ -856,9 +856,9 @@ export const WatermarkTool: React.FC = () => {
 
             {/* Watermark Source Content */}
             {config.type === 'text' ? (
-              <div className="space-y-3.5 p-3.5 rounded-xl bg-neutral-50 border border-neutral-200">
+              <div className="space-y-3.5 p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-800">
                 <div>
-                  <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                  <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
                     Watermark Text
                   </label>
                   <textarea
@@ -866,14 +866,14 @@ export const WatermarkTool: React.FC = () => {
                     value={config.text}
                     placeholder="Type your watermark text (e.g. © Your Brand)"
                     onChange={(e) => setConfig((prev) => ({ ...prev, text: e.target.value }))}
-                    className="w-full text-sm p-2.5 bg-white border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/30 focus:border-teal-600 resize-none"
+                    className="w-full text-sm p-2.5 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/30 focus:border-teal-600 resize-none"
                   />
                 </div>
 
                 {/* Font & Style Row */}
                 <div className="grid grid-cols-12 gap-2 items-end">
                   <div className="col-span-7">
-                    <label className="block text-[11px] font-semibold text-neutral-600 mb-1">
+                    <label className="block text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 mb-1">
                       Font Style
                     </label>
                     <select
@@ -881,7 +881,7 @@ export const WatermarkTool: React.FC = () => {
                       onChange={(e) =>
                         setConfig((prev) => ({ ...prev, fontFamily: e.target.value }))
                       }
-                      className="w-full text-xs font-medium bg-white border border-neutral-300 rounded-lg p-2 text-neutral-800 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                      className="w-full text-xs font-medium bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg p-2 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-teal-500"
                     >
                       <option value="Plus Jakarta Sans, sans-serif">Modern Sans</option>
                       <option value="Georgia, serif">Editorial Serif</option>
@@ -897,7 +897,7 @@ export const WatermarkTool: React.FC = () => {
                       className={`flex-1 py-2 rounded-lg border flex items-center justify-center transition-colors ${
                         config.isBold
                           ? 'bg-teal-600 border-teal-600 text-white'
-                          : 'bg-white border-neutral-300 text-neutral-700 hover:bg-neutral-100'
+                          : 'bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                       }`}
                       title="Bold"
                     >
@@ -909,7 +909,7 @@ export const WatermarkTool: React.FC = () => {
                       className={`flex-1 py-2 rounded-lg border flex items-center justify-center transition-colors ${
                         config.isItalic
                           ? 'bg-teal-600 border-teal-600 text-white'
-                          : 'bg-white border-neutral-300 text-neutral-700 hover:bg-neutral-100'
+                          : 'bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                       }`}
                       title="Italic"
                     >
@@ -920,9 +920,9 @@ export const WatermarkTool: React.FC = () => {
 
                 {/* Text Size Slider */}
                 <div>
-                  <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                  <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                     <span>Text Size</span>
-                    <span className="font-mono font-bold text-teal-700">{config.fontSizePct}%</span>
+                    <span className="font-mono font-bold text-teal-700 dark:text-teal-400">{config.fontSizePct}%</span>
                   </div>
                   <input
                     type="range"
@@ -933,7 +933,7 @@ export const WatermarkTool: React.FC = () => {
                     onChange={(e) =>
                       setConfig((prev) => ({ ...prev, fontSizePct: parseFloat(e.target.value) }))
                     }
-                    className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                    className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-teal-600"
                   />
                 </div>
 
@@ -948,14 +948,14 @@ export const WatermarkTool: React.FC = () => {
                         className={`w-6 h-6 rounded-md border transition-transform ${
                           config.textColor.toLowerCase() === swatch
                             ? 'border-teal-600 ring-2 ring-teal-500/40 scale-110'
-                            : 'border-neutral-300 hover:scale-105'
+                            : 'border-neutral-300 dark:border-neutral-600 hover:scale-105'
                         }`}
                         style={{ backgroundColor: swatch }}
                         title={swatch}
                       />
                     ))}
                     <label
-                      className="w-6 h-6 rounded-md border border-neutral-300 overflow-hidden cursor-pointer relative"
+                      className="w-6 h-6 rounded-md border border-neutral-300 dark:border-neutral-600 overflow-hidden cursor-pointer relative"
                       title="Custom Color"
                     >
                       <input
@@ -969,7 +969,7 @@ export const WatermarkTool: React.FC = () => {
                     </label>
                   </div>
 
-                  <label className="flex items-center gap-1.5 text-xs font-medium text-neutral-700 cursor-pointer select-none">
+                  <label className="flex items-center gap-1.5 text-xs font-medium text-neutral-700 dark:text-neutral-300 cursor-pointer select-none">
                     <input
                       type="checkbox"
                       checked={config.textShadow}
@@ -984,7 +984,7 @@ export const WatermarkTool: React.FC = () => {
               </div>
             ) : (
               /* Image Watermark Upload Section */
-              <div className="space-y-3.5 p-3.5 rounded-xl bg-neutral-50 border border-neutral-200">
+              <div className="space-y-3.5 p-3.5 rounded-xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-800">
                 {!config.wmImageUrl ? (
                   <div
                     onDragOver={(e) => {
@@ -1002,24 +1002,24 @@ export const WatermarkTool: React.FC = () => {
                     onClick={() => wmInputRef.current?.click()}
                     className={`border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-all ${
                       isDraggingWmDrop
-                        ? 'border-teal-500 bg-teal-50/50'
-                        : 'border-neutral-300 hover:border-teal-400 bg-white'
+                        ? 'border-teal-500 bg-teal-50/50 dark:bg-teal-950/30'
+                        : 'border-neutral-300 dark:border-neutral-700 hover:border-teal-400 dark:hover:border-teal-500 bg-white dark:bg-neutral-900'
                     }`}
                   >
-                    <div className="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-2.5">
+                    <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center mx-auto mb-2.5">
                       <UploadCloud className="w-5 h-5" />
                     </div>
-                    <div className="text-xs font-bold text-neutral-800">
+                    <div className="text-xs font-bold text-neutral-800 dark:text-neutral-200">
                       Upload Your Watermark Image
                     </div>
-                    <div className="text-[11px] text-neutral-500 mt-1">
+                    <div className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-1">
                       PNG (transparent), SVG, JPG, or WebP logo
                     </div>
                   </div>
                 ) : (
                   <div className="space-y-3">
-                    <div className="flex items-center gap-3 p-2.5 bg-white rounded-xl border border-neutral-200">
-                      <div className="w-14 h-14 rounded-lg border border-neutral-200 bg-transparency-grid flex items-center justify-center overflow-hidden shrink-0 p-1">
+                    <div className="flex items-center gap-3 p-2.5 bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-700">
+                      <div className="w-14 h-14 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-transparency-grid flex items-center justify-center overflow-hidden shrink-0 p-1">
                         <img
                           src={config.wmImageUrl}
                           alt="Watermark logo"
@@ -1028,25 +1028,25 @@ export const WatermarkTool: React.FC = () => {
                         />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="text-xs font-semibold text-neutral-900 truncate">
+                        <div className="text-xs font-semibold text-neutral-900 dark:text-neutral-100 truncate">
                           {config.wmImageName}
                         </div>
-                        <div className="text-[11px] text-neutral-500 font-mono">
+                        <div className="text-[11px] text-neutral-500 dark:text-neutral-400 font-mono">
                           {config.wmImageWidth} × {config.wmImageHeight} px
                         </div>
                         <div className="flex items-center gap-2 mt-1">
                           <button
                             type="button"
                             onClick={() => wmInputRef.current?.click()}
-                            className="text-[11px] font-semibold text-teal-700 hover:underline"
+                            className="text-[11px] font-semibold text-teal-700 dark:text-teal-400 hover:underline"
                           >
                             Replace
                           </button>
-                          <span className="text-neutral-300">·</span>
+                          <span className="text-neutral-300 dark:text-neutral-600">·</span>
                           <button
                             type="button"
                             onClick={removeWatermarkImage}
-                            className="text-[11px] font-medium text-red-600 hover:underline"
+                            className="text-[11px] font-medium text-red-600 dark:text-red-400 hover:underline"
                           >
                             Remove
                           </button>
@@ -1055,9 +1055,9 @@ export const WatermarkTool: React.FC = () => {
                     </div>
 
                     <div>
-                      <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                      <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                         <span>Watermark Scale</span>
-                        <span className="font-mono font-bold text-teal-700">
+                        <span className="font-mono font-bold text-teal-700 dark:text-teal-400">
                           {config.wmScalePct}% width
                         </span>
                       </div>
@@ -1072,7 +1072,7 @@ export const WatermarkTool: React.FC = () => {
                             wmScalePct: parseInt(e.target.value, 10),
                           }))
                         }
-                        className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                        className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-teal-600"
                       />
                     </div>
                   </div>
@@ -1083,11 +1083,11 @@ export const WatermarkTool: React.FC = () => {
             {/* Placement & Opacity Controls */}
             <div className="space-y-4 pt-1">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-neutral-800 uppercase tracking-wide">
+                <span className="text-xs font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide">
                   Position & Appearance
                 </span>
 
-                <label className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-700 cursor-pointer select-none">
+                <label className="inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-700 dark:text-neutral-300 cursor-pointer select-none">
                   <input
                     type="checkbox"
                     checked={config.tiled}
@@ -1100,7 +1100,7 @@ export const WatermarkTool: React.FC = () => {
                     }
                     className="rounded accent-teal-600"
                   />
-                  <Grid className="w-3.5 h-3.5 text-teal-600" />
+                  <Grid className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                   <span>Tile Mosaic</span>
                 </label>
               </div>
@@ -1109,7 +1109,7 @@ export const WatermarkTool: React.FC = () => {
                 <div className="grid grid-cols-12 gap-3 items-center">
                   {/* 3x3 Anchor Grid */}
                   <div className="col-span-5">
-                    <div className="grid grid-cols-3 gap-1 p-1.5 bg-neutral-100 rounded-xl border border-neutral-200 w-24">
+                    <div className="grid grid-cols-3 gap-1 p-1.5 bg-neutral-100 dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 w-24">
                       {PRESET_POSITIONS.map((pos) => {
                         const isActive = config.positionPreset === pos.id;
                         return (
@@ -1128,12 +1128,12 @@ export const WatermarkTool: React.FC = () => {
                             className={`w-6 h-6 rounded-md flex items-center justify-center transition-all ${
                               isActive
                                 ? 'bg-teal-600 text-white shadow-2xs'
-                                : 'bg-white hover:bg-neutral-200 text-neutral-400'
+                                : 'bg-white dark:bg-neutral-900 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-400'
                             }`}
                           >
                             <span
                               className={`w-1.5 h-1.5 rounded-full ${
-                                isActive ? 'bg-white' : 'bg-neutral-400'
+                                isActive ? 'bg-white' : 'bg-neutral-400 dark:bg-neutral-500'
                               }`}
                             />
                           </button>
@@ -1144,9 +1144,9 @@ export const WatermarkTool: React.FC = () => {
 
                   {/* Edge Margin Slider */}
                   <div className="col-span-7 space-y-2">
-                    <div className="flex items-center justify-between text-xs font-medium text-neutral-700">
+                    <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300">
                       <span>Edge Margin</span>
-                      <span className="font-mono font-bold text-teal-700">
+                      <span className="font-mono font-bold text-teal-700 dark:text-teal-400">
                         {config.marginPct}%
                       </span>
                     </div>
@@ -1161,9 +1161,9 @@ export const WatermarkTool: React.FC = () => {
                           marginPct: parseInt(e.target.value, 10),
                         }))
                       }
-                      className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                      className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-teal-600"
                     />
-                    <div className="text-[10px] text-neutral-400">
+                    <div className="text-[10px] text-neutral-400 dark:text-neutral-500">
                       {config.positionPreset === 'custom'
                         ? 'Custom dragged position'
                         : 'Click grid or drag on photo'}
@@ -1173,9 +1173,9 @@ export const WatermarkTool: React.FC = () => {
               ) : (
                 /* Mosaic Density Slider */
                 <div>
-                  <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                  <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                     <span>Mosaic Tile Density</span>
-                    <span className="font-mono font-bold text-teal-700">
+                    <span className="font-mono font-bold text-teal-700 dark:text-teal-400">
                       {config.tileDensity}× grid
                     </span>
                   </div>
@@ -1191,7 +1191,7 @@ export const WatermarkTool: React.FC = () => {
                         tileDensity: parseInt(e.target.value, 10),
                       }))
                     }
-                    className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                    className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-teal-600"
                   />
                 </div>
               )}
@@ -1199,9 +1199,9 @@ export const WatermarkTool: React.FC = () => {
               {/* Opacity & Rotation */}
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                  <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                     <span>Opacity</span>
-                    <span className="font-mono font-bold text-teal-700">
+                    <span className="font-mono font-bold text-teal-700 dark:text-teal-400">
                       {Math.round(config.opacity * 100)}%
                     </span>
                   </div>
@@ -1216,14 +1216,14 @@ export const WatermarkTool: React.FC = () => {
                         opacity: parseInt(e.target.value, 10) / 100,
                       }))
                     }
-                    className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                    className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-teal-600"
                   />
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                  <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                     <span>Rotation</span>
-                    <span className="font-mono font-bold text-teal-700">{config.rotation}°</span>
+                    <span className="font-mono font-bold text-teal-700 dark:text-teal-400">{config.rotation}°</span>
                   </div>
                   <input
                     type="range"
@@ -1236,20 +1236,20 @@ export const WatermarkTool: React.FC = () => {
                         rotation: parseInt(e.target.value, 10),
                       }))
                     }
-                    className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                    className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-teal-600"
                   />
                 </div>
               </div>
 
               {/* Output Format */}
               <div>
-                <label className="block text-xs font-semibold text-neutral-700 mb-1">
+                <label className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
                   Output Format
                 </label>
                 <select
                   value={outputFormat}
                   onChange={(e) => setOutputFormat(e.target.value as OutputFormat)}
-                  className="w-full text-xs font-medium bg-white border border-neutral-300 rounded-lg p-2 text-neutral-800 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                  className="w-full text-xs font-medium bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 rounded-lg p-2 text-neutral-800 dark:text-neutral-100 focus:outline-none focus:ring-1 focus:ring-teal-500"
                 >
                   <option value="original">Keep Original Format</option>
                   <option value="image/jpeg">JPG (Standard photo)</option>
@@ -1260,12 +1260,12 @@ export const WatermarkTool: React.FC = () => {
             </div>
 
             {/* Download / Apply Action Buttons */}
-            <div className="pt-2 border-t border-neutral-100 space-y-2">
+            <div className="pt-2 border-t border-neutral-100 dark:border-neutral-800 space-y-2">
               <button
                 type="button"
                 onClick={handleDownloadCurrent}
                 disabled={!selectedPhoto || !hasValidWatermark || isExporting}
-                className="w-full py-3 bg-teal-600 hover:bg-teal-700 disabled:bg-neutral-300 disabled:cursor-not-allowed text-white font-bold rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2"
+                className="w-full py-3 bg-teal-600 hover:bg-teal-700 disabled:bg-neutral-300 dark:disabled:bg-neutral-700 disabled:cursor-not-allowed text-white font-bold rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2"
               >
                 {isExporting ? (
                   <>
@@ -1289,7 +1289,7 @@ export const WatermarkTool: React.FC = () => {
                   type="button"
                   onClick={handleDownloadAllZip}
                   disabled={!hasValidWatermark || isExporting}
-                  className="w-full py-2.5 bg-neutral-900 hover:bg-neutral-800 disabled:bg-neutral-300 disabled:cursor-not-allowed text-white font-semibold rounded-xl text-xs shadow-xs transition-all flex items-center justify-center gap-2"
+                  className="w-full py-2.5 bg-neutral-900 dark:bg-neutral-800 hover:bg-neutral-800 dark:hover:bg-neutral-700 disabled:bg-neutral-300 dark:disabled:bg-neutral-700 disabled:cursor-not-allowed text-white font-semibold rounded-xl text-xs shadow-xs transition-all flex items-center justify-center gap-2"
                 >
                   <FolderDown className="w-4 h-4" />
                   <span>
@@ -1301,12 +1301,12 @@ export const WatermarkTool: React.FC = () => {
               )}
 
               {!selectedPhoto && (
-                <p className="text-[11px] text-center text-neutral-400">
+                <p className="text-[11px] text-center text-neutral-400 dark:text-neutral-500">
                   Upload at least one photo on the left to enable download
                 </p>
               )}
               {selectedPhoto && !hasValidWatermark && (
-                <p className="text-[11px] text-center text-amber-600 font-medium">
+                <p className="text-[11px] text-center text-amber-600 dark:text-amber-400 font-medium">
                   Enter watermark text or upload a watermark image above
                 </p>
               )}
@@ -1317,32 +1317,32 @@ export const WatermarkTool: React.FC = () => {
 
       {/* Bottom Trust Strip */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-        <div className="p-5 rounded-xl bg-white border border-neutral-200">
-          <div className="w-9 h-9 rounded-lg bg-teal-50 text-teal-600 flex items-center justify-center mb-3">
+        <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+          <div className="w-9 h-9 rounded-lg bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-3">
             <Stamp className="w-5 h-5" />
           </div>
-          <h3 className="text-sm font-bold text-neutral-900">Text & Custom Logo Support</h3>
-          <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+          <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Text & Custom Logo Support</h3>
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
             Stamp crisp typography with custom fonts and colors, or upload your transparent PNG/SVG brand logo directly onto your photos.
           </p>
         </div>
 
-        <div className="p-5 rounded-xl bg-white border border-neutral-200">
-          <div className="w-9 h-9 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+        <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+          <div className="w-9 h-9 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
             <Grid className="w-5 h-5" />
           </div>
-          <h3 className="text-sm font-bold text-neutral-900">Free Drag, 9-Grid & Mosaic</h3>
-          <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+          <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Free Drag, 9-Grid & Mosaic</h3>
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
             Position your watermark anywhere by dragging on the preview, snapping to corners, or repeating in a diagonal protective grid.
           </p>
         </div>
 
-        <div className="p-5 rounded-xl bg-white border border-neutral-200">
-          <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+        <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+          <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
             <ShieldCheck className="w-5 h-5" />
           </div>
-          <h3 className="text-sm font-bold text-neutral-900">Batch Processing & Privacy</h3>
-          <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+          <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Batch Processing & Privacy</h3>
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
             Stamp multiple photos at once at full native resolution and download them together in a ZIP — 100% locally in your browser.
           </p>
         </div>

@@ -251,11 +251,11 @@ export const UpscaleTool: React.FC = () => {
     <div className="max-w-5xl mx-auto space-y-6">
       {/* Title */}
       <div className="text-center">
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight font-sans">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight font-sans">
           Upscale PHOTO
         </h1>
-        <p className="text-neutral-500 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
-          Increase image resolution and enlarge your photos by <strong className="text-neutral-800 font-semibold">2x, 4x, or 8x</strong> with crisp detail enhancement.
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+          Increase image resolution and enlarge your photos by <strong className="text-neutral-800 dark:text-neutral-200 font-semibold">2x, 4x, or 8x</strong> with crisp detail enhancement.
         </p>
       </div>
 
@@ -265,52 +265,52 @@ export const UpscaleTool: React.FC = () => {
 
           {/* Quick Explanatory Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-3">
                 <Maximize className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">2x, 4x & 8x Scaling</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">2x, 4x & 8x Scaling</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Transform small low-res photos into ultra-high-definition wallpapers, print-ready posters, or crystal clear banner graphics.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center mb-3">
                 <Sparkles className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">Detail & Texture Enhancement</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Detail & Texture Enhancement</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Applies multi-stage unsharp edge sharpening and adaptive contrast interpolation to avoid blurry pixelation.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">100% In-Browser Privacy</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">100% In-Browser Privacy</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Processing runs on your device GPU/CPU via Canvas hardware acceleration. No server uploads or storage.
               </p>
             </div>
           </div>
         </div>
       ) : (
-        <div className="bg-white rounded-2xl border border-neutral-200 p-5 sm:p-7 shadow-sm space-y-6">
+        <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 sm:p-7 shadow-sm space-y-6">
           {/* Top Bar: Image info & reset */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-neutral-200">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-neutral-200 dark:border-neutral-800">
             <div>
-              <h2 className="text-base font-bold text-neutral-900 truncate max-w-md">
+              <h2 className="text-base font-bold text-neutral-900 dark:text-neutral-100 truncate max-w-md">
                 {file.name}
               </h2>
-              <div className="flex items-center gap-2 text-xs text-neutral-500 mt-0.5">
+              <div className="flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
                 <span>Original:</span>
-                <span className="font-mono font-semibold text-neutral-800">
+                <span className="font-mono font-semibold text-neutral-800 dark:text-neutral-200">
                   {origWidth} × {origHeight} px
                 </span>
                 <span>·</span>
-                <span className="font-mono text-neutral-600">{formatBytes(file.size)}</span>
+                <span className="font-mono text-neutral-600 dark:text-neutral-400">{formatBytes(file.size)}</span>
               </div>
             </div>
 
@@ -322,7 +322,7 @@ export const UpscaleTool: React.FC = () => {
                 setUpscaledUrl(null);
                 setUpscaledBlob(null);
               }}
-              className="text-xs font-medium text-neutral-500 hover:text-neutral-800 self-start sm:self-auto py-1 px-2.5 rounded-lg border border-neutral-200 hover:bg-neutral-50"
+              className="text-xs font-medium text-neutral-500 dark:text-neutral-300 hover:text-neutral-800 dark:hover:text-white self-start sm:self-auto py-1 px-2.5 rounded-lg border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800"
             >
               Choose different image
             </button>
@@ -332,7 +332,7 @@ export const UpscaleTool: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* 1. Scale Factor Selector (2x, 4x, 8x) */}
             <div className="space-y-3">
-              <label className="text-xs font-bold text-neutral-800 uppercase tracking-wide block">
+              <label className="text-xs font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide block">
                 1. Select Upscale Factor
               </label>
               <div className="grid grid-cols-3 gap-2">
@@ -343,12 +343,12 @@ export const UpscaleTool: React.FC = () => {
                     onClick={() => setFactor(f)}
                     className={`py-3 px-3 rounded-xl border text-center transition-all ${
                       factor === f
-                        ? 'border-indigo-600 bg-indigo-50/70 text-indigo-950 font-bold ring-2 ring-indigo-600/30 shadow-xs'
-                        : 'border-neutral-200 hover:border-neutral-300 bg-white text-neutral-700'
+                        ? 'border-indigo-600 dark:border-indigo-500 bg-indigo-50/70 dark:bg-indigo-950/50 text-indigo-950 dark:text-indigo-200 font-bold ring-2 ring-indigo-600/30 shadow-xs'
+                        : 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300'
                     }`}
                   >
                     <div className="text-lg font-extrabold tracking-tight">{f}x</div>
-                    <div className="text-[10px] text-neutral-500 mt-0.5">
+                    <div className="text-[10px] text-neutral-500 dark:text-neutral-400 mt-0.5">
                       {f === 2 ? 'Double' : f === 4 ? 'Quad' : 'Ultra 8x'}
                     </div>
                   </button>
@@ -356,12 +356,12 @@ export const UpscaleTool: React.FC = () => {
               </div>
 
               {/* Resulting Dimensions Preview */}
-              <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-200/80 text-xs space-y-1">
-                <div className="text-neutral-500 text-[11px]">Resulting Resolution:</div>
-                <div className="font-mono font-bold text-indigo-700 text-sm">
+              <div className="p-3 bg-neutral-50 dark:bg-neutral-800/60 rounded-xl border border-neutral-200/80 dark:border-neutral-800 text-xs space-y-1">
+                <div className="text-neutral-500 dark:text-neutral-400 text-[11px]">Resulting Resolution:</div>
+                <div className="font-mono font-bold text-indigo-700 dark:text-indigo-400 text-sm">
                   {targetWidth} × {targetHeight} px
                 </div>
-                <div className="text-[11px] text-neutral-500">
+                <div className="text-[11px] text-neutral-500 dark:text-neutral-400">
                   {factor * factor}x more total pixels
                 </div>
               </div>
@@ -369,7 +369,7 @@ export const UpscaleTool: React.FC = () => {
 
             {/* 2. Enhancement Mode */}
             <div className="space-y-3">
-              <label className="text-xs font-bold text-neutral-800 uppercase tracking-wide block">
+              <label className="text-xs font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide block">
                 2. Enhancement Style
               </label>
 
@@ -398,19 +398,19 @@ export const UpscaleTool: React.FC = () => {
                     onClick={() => setMode(m.id as UpscaleMode)}
                     className={`w-full text-left p-2.5 rounded-xl border transition-all ${
                       mode === m.id
-                        ? 'border-indigo-600 bg-indigo-50/50 text-indigo-950 font-semibold ring-1 ring-indigo-600'
-                        : 'border-neutral-200 hover:border-neutral-300 bg-white text-neutral-700'
+                        ? 'border-indigo-600 dark:border-indigo-500 bg-indigo-50/50 dark:bg-indigo-950/40 text-indigo-950 dark:text-indigo-100 font-semibold ring-1 ring-indigo-600 dark:ring-indigo-500'
+                        : 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300'
                     }`}
                   >
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-bold">{m.title}</span>
                       {m.badge && (
-                        <span className="text-[9px] font-bold uppercase tracking-wider text-indigo-700 bg-indigo-100 px-1.5 py-0.5 rounded">
+                        <span className="text-[9px] font-bold uppercase tracking-wider text-indigo-700 dark:text-indigo-300 bg-indigo-100 dark:bg-indigo-900/60 px-1.5 py-0.5 rounded">
                           {m.badge}
                         </span>
                       )}
                     </div>
-                    <div className="text-[11px] text-neutral-500 mt-0.5">{m.desc}</div>
+                    <div className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-0.5">{m.desc}</div>
                   </button>
                 ))}
               </div>
@@ -419,13 +419,13 @@ export const UpscaleTool: React.FC = () => {
             {/* 3. Output Format & Action */}
             <div className="space-y-3 flex flex-col justify-between">
               <div>
-                <label className="text-xs font-bold text-neutral-800 uppercase tracking-wide block mb-2">
+                <label className="text-xs font-bold text-neutral-800 dark:text-neutral-200 uppercase tracking-wide block mb-2">
                   3. Format & Settings
                 </label>
 
                 {/* Format choice */}
                 <div className="mb-3">
-                  <span className="text-[11px] text-neutral-600 font-medium block mb-1">
+                  <span className="text-[11px] text-neutral-600 dark:text-neutral-400 font-medium block mb-1">
                     Output Format:
                   </span>
                   <div className="grid grid-cols-3 gap-1.5">
@@ -440,8 +440,8 @@ export const UpscaleTool: React.FC = () => {
                         onClick={() => setOutputFormat(fmt.id as any)}
                         className={`py-1.5 px-2 text-xs font-semibold rounded-lg border text-center transition-colors ${
                           outputFormat === fmt.id
-                            ? 'bg-neutral-900 border-neutral-900 text-white'
-                            : 'bg-white border-neutral-200 text-neutral-700 hover:bg-neutral-50'
+                            ? 'bg-neutral-900 dark:bg-indigo-600 border-neutral-900 dark:border-indigo-600 text-white'
+                            : 'bg-white dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-700'
                         }`}
                       >
                         {fmt.label}
@@ -453,9 +453,9 @@ export const UpscaleTool: React.FC = () => {
                 {/* Sharpness slider for enhanced mode */}
                 {mode === 'ai-enhanced' && (
                   <div>
-                    <div className="flex items-center justify-between text-[11px] font-medium text-neutral-700 mb-1">
+                    <div className="flex items-center justify-between text-[11px] font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                       <span>Detail Sharpness:</span>
-                      <span className="font-mono font-bold text-indigo-600">{sharpness}%</span>
+                      <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400">{sharpness}%</span>
                     </div>
                     <input
                       type="range"
@@ -463,7 +463,7 @@ export const UpscaleTool: React.FC = () => {
                       max="100"
                       value={sharpness}
                       onChange={(e) => setSharpness(parseInt(e.target.value, 10))}
-                      className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                      className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-indigo-600"
                     />
                   </div>
                 )}
@@ -474,7 +474,7 @@ export const UpscaleTool: React.FC = () => {
                 type="button"
                 onClick={executeUpscale}
                 disabled={isProcessing}
-                className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] disabled:bg-neutral-300 text-white font-bold rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2 mt-4"
+                className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] disabled:bg-neutral-300 dark:disabled:bg-neutral-700 text-white font-bold rounded-xl text-sm shadow-sm transition-all flex items-center justify-center gap-2 mt-4"
               >
                 {isProcessing ? (
                   <>
@@ -493,14 +493,14 @@ export const UpscaleTool: React.FC = () => {
 
           {/* Interactive Inspection & Result Area */}
           {upscaledUrl ? (
-            <div className="pt-6 border-t border-neutral-200 space-y-4">
+            <div className="pt-6 border-t border-neutral-200 dark:border-neutral-800 space-y-4">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                  <span className="text-sm font-bold text-neutral-900">
+                  <span className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
                     Upscaled {factor}x Successfully
                   </span>
-                  <span className="text-xs text-neutral-500 font-mono">
+                  <span className="text-xs text-neutral-500 dark:text-neutral-400 font-mono">
                     ({processTimeMs}ms)
                   </span>
                 </div>
@@ -626,9 +626,9 @@ export const UpscaleTool: React.FC = () => {
             </div>
           ) : (
             /* Standby preview when loaded before upscaling */
-            <div className="pt-4 border-t border-neutral-200">
-              <div className="flex flex-col items-center justify-center p-6 bg-neutral-50 rounded-xl border border-dashed border-neutral-200">
-                <div className="max-h-64 overflow-hidden rounded-lg shadow-xs mb-3 bg-transparency-grid border border-neutral-200">
+            <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800">
+              <div className="flex flex-col items-center justify-center p-6 bg-neutral-50 dark:bg-neutral-800/50 rounded-xl border border-dashed border-neutral-200 dark:border-neutral-700">
+                <div className="max-h-64 overflow-hidden rounded-lg shadow-xs mb-3 bg-transparency-grid border border-neutral-200 dark:border-neutral-700">
                   <img
                     src={imageUrl!}
                     alt="Preview"
@@ -636,8 +636,8 @@ export const UpscaleTool: React.FC = () => {
                     className="max-h-56 object-contain"
                   />
                 </div>
-                <p className="text-xs text-neutral-500 text-center">
-                  Ready to upscale from <strong className="text-neutral-700">{origWidth} × {origHeight}</strong> to <strong className="text-indigo-600 font-bold">{targetWidth} × {targetHeight}</strong> ({factor}x). Click <span className="font-semibold text-neutral-700">"Upscale Photo {factor}x"</span> above to process.
+                <p className="text-xs text-neutral-500 dark:text-neutral-400 text-center">
+                  Ready to upscale from <strong className="text-neutral-700 dark:text-neutral-200">{origWidth} × {origHeight}</strong> to <strong className="text-indigo-600 dark:text-indigo-400 font-bold">{targetWidth} × {targetHeight}</strong> ({factor}x). Click <span className="font-semibold text-neutral-700 dark:text-neutral-200">"Upscale Photo {factor}x"</span> above to process.
                 </p>
               </div>
             </div>

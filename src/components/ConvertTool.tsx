@@ -67,10 +67,10 @@ export const ConvertTool: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="text-center">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight">
           Convert to JPG, WebP or PNG
         </h1>
-        <p className="text-neutral-500 text-sm mt-1 max-w-lg mx-auto">
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm mt-1 max-w-lg mx-auto">
           Convert PNG, SVG, GIF, WebP or HEIC into optimized standard image formats.
         </p>
       </div>
@@ -78,11 +78,11 @@ export const ConvertTool: React.FC = () => {
       {!file ? (
         <DropZone onFilesSelected={handleFiles} />
       ) : (
-        <div className="bg-white rounded-2xl border border-neutral-200 p-6 shadow-sm space-y-6">
+        <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 shadow-sm space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Preview */}
             <div className="flex flex-col items-center">
-              <div className="w-full max-h-72 bg-neutral-100 rounded-xl overflow-hidden border border-neutral-200 flex items-center justify-center p-2 bg-transparency-grid">
+              <div className="w-full max-h-72 bg-neutral-100 dark:bg-neutral-800 rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-700 flex items-center justify-center p-2 bg-transparency-grid">
                 <img
                   src={convertedUrl || imageUrl!}
                   alt="Convert target"
@@ -90,14 +90,14 @@ export const ConvertTool: React.FC = () => {
                   className="max-h-64 object-contain"
                 />
               </div>
-              <div className="mt-2 text-xs text-neutral-500 font-mono">
+              <div className="mt-2 text-xs text-neutral-500 dark:text-neutral-400 font-mono">
                 {file.name} ({formatBytes(file.size)})
               </div>
             </div>
 
             {/* Target Options */}
             <div className="space-y-4">
-              <span className="text-sm font-bold text-neutral-900 block pb-2 border-b border-neutral-200">
+              <span className="text-sm font-bold text-neutral-900 dark:text-neutral-100 block pb-2 border-b border-neutral-200 dark:border-neutral-800">
                 Choose Target Format
               </span>
 
@@ -111,8 +111,8 @@ export const ConvertTool: React.FC = () => {
                     key={fmt.id}
                     className={`flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
                       targetFormat === fmt.id
-                        ? 'border-emerald-600 bg-emerald-50/50 ring-1 ring-emerald-600'
-                        : 'border-neutral-200 hover:border-neutral-300'
+                        ? 'border-emerald-600 dark:border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/40 ring-1 ring-emerald-600 dark:ring-emerald-500'
+                        : 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 bg-white dark:bg-neutral-900'
                     }`}
                   >
                     <input
@@ -124,8 +124,8 @@ export const ConvertTool: React.FC = () => {
                       className="mt-0.5 accent-emerald-600"
                     />
                     <div>
-                      <div className="text-sm font-semibold text-neutral-900">{fmt.name}</div>
-                      <div className="text-xs text-neutral-500">{fmt.desc}</div>
+                      <div className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">{fmt.name}</div>
+                      <div className="text-xs text-neutral-500 dark:text-neutral-400">{fmt.desc}</div>
                     </div>
                   </label>
                 ))}
@@ -170,7 +170,7 @@ export const ConvertTool: React.FC = () => {
                     setImageUrl(null);
                     setConvertedBlob(null);
                   }}
-                  className="w-full py-1.5 text-xs font-medium text-neutral-500 hover:text-neutral-800"
+                  className="w-full py-1.5 text-xs font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200"
                 >
                   Choose another image
                 </button>

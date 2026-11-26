@@ -437,10 +437,10 @@ export const TransparentTool: React.FC = () => {
     <div className="max-w-6xl mx-auto space-y-6">
       {/* Title */}
       <div className="text-center">
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 tracking-tight font-sans">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-neutral-900 dark:text-neutral-100 tracking-tight font-sans">
           Make Transparent Background
         </h1>
-        <p className="text-neutral-500 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
           Instantly remove backgrounds from photos, graphics, and logos with smart color isolation and manual touch-up tools.
         </p>
       </div>
@@ -451,62 +451,62 @@ export const TransparentTool: React.FC = () => {
 
           {/* Quick Explanatory Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-violet-50 text-violet-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-violet-50 dark:bg-violet-950/60 text-violet-600 dark:text-violet-400 flex items-center justify-center mb-3">
                 <Sparkles className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">1-Click Auto Removal</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">1-Click Auto Removal</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Automatically detects background color from corners and borders to extract your subject cleanly with zero effort.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-3">
                 <Pipette className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">Color Eyedropper & Threshold</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Color Eyedropper & Threshold</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Click anywhere to select the exact backdrop shade. Adjust tolerance and edge feathering for smooth, artifact-free cutout edges.
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-white border border-neutral-200">
-              <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+            <div className="p-5 rounded-xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <div className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-3">
                 <Paintbrush className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-neutral-900">Precision Brush & Restore</h3>
-              <p className="text-xs text-neutral-500 mt-1 leading-relaxed">
+              <h3 className="text-sm font-bold text-neutral-900 dark:text-neutral-100">Precision Brush & Restore</h3>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
                 Erase stray pixels or brush back fine details like hair or logos with unlimited undo/redo history.
               </p>
             </div>
           </div>
         </div>
       ) : (
-        <div className="bg-white rounded-2xl border border-neutral-200 p-5 sm:p-6 shadow-sm space-y-5">
+        <div className="bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 p-5 sm:p-6 shadow-sm space-y-5">
           {/* Top Bar: File info, mode tabs & download */}
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-4 border-b border-neutral-200">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-4 border-b border-neutral-200 dark:border-neutral-800">
             <div>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-violet-600"></span>
-                <h2 className="text-base font-bold text-neutral-900 truncate max-w-sm">
+                <h2 className="text-base font-bold text-neutral-900 dark:text-neutral-100 truncate max-w-sm">
                   {file.name}
                 </h2>
               </div>
-              <div className="text-xs text-neutral-500 font-mono mt-0.5">
+              <div className="text-xs text-neutral-500 dark:text-neutral-400 font-mono mt-0.5">
                 {origWidth} × {origHeight} px · Original: {formatBytes(file.size)}
               </div>
             </div>
 
             {/* View Mode Toggle (Editor vs Before/After Compare) */}
-            <div className="flex items-center gap-1 p-1 bg-neutral-100 rounded-xl border border-neutral-200">
+            <div className="flex items-center gap-1 p-1 bg-neutral-100 dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700">
               <button
                 type="button"
                 onClick={() => setViewMode('editor')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   viewMode === 'editor'
-                    ? 'bg-white text-neutral-900 shadow-2xs'
-                    : 'text-neutral-600 hover:text-neutral-900'
+                    ? 'bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 shadow-2xs'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100'
                 }`}
               >
                 <Paintbrush className="w-3.5 h-3.5" />
@@ -517,8 +517,8 @@ export const TransparentTool: React.FC = () => {
                 onClick={() => setViewMode('compare')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   viewMode === 'compare'
-                    ? 'bg-white text-neutral-900 shadow-2xs'
-                    : 'text-neutral-600 hover:text-neutral-900'
+                    ? 'bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 shadow-2xs'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100'
                 }`}
               >
                 <ArrowLeftRight className="w-3.5 h-3.5" />
@@ -536,7 +536,7 @@ export const TransparentTool: React.FC = () => {
                   setOutputUrl(null);
                   setOutputBlob(null);
                 }}
-                className="px-3 py-2 text-xs font-medium text-neutral-600 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200 rounded-xl transition-colors"
+                className="px-3 py-2 text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded-xl transition-colors"
               >
                 Change Image
               </button>
@@ -556,17 +556,17 @@ export const TransparentTool: React.FC = () => {
           </div>
 
           {/* Interactive Tool Control Panel */}
-          <div className="p-4 bg-neutral-50 rounded-xl border border-neutral-200/80 space-y-4">
+          <div className="p-4 bg-neutral-50 dark:bg-neutral-800/50 rounded-xl border border-neutral-200/80 dark:border-neutral-800 space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
               {/* Tool selector buttons */}
-              <div className="flex items-center gap-1.5 bg-white p-1 rounded-xl border border-neutral-200 shadow-2xs">
+              <div className="flex items-center gap-1.5 bg-white dark:bg-neutral-900 p-1 rounded-xl border border-neutral-200 dark:border-neutral-700 shadow-2xs flex-wrap">
                 <button
                   type="button"
                   onClick={() => setActiveTool('auto')}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                     activeTool === 'auto'
                       ? 'bg-violet-600 text-white shadow-2xs'
-                      : 'text-neutral-700 hover:bg-neutral-100'
+                      : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                   }`}
                 >
                   <Sparkles className="w-3.5 h-3.5" />
@@ -579,7 +579,7 @@ export const TransparentTool: React.FC = () => {
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                     activeTool === 'eyedropper'
                       ? 'bg-violet-600 text-white shadow-2xs'
-                      : 'text-neutral-700 hover:bg-neutral-100'
+                      : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                   }`}
                 >
                   <Pipette className="w-3.5 h-3.5" />
@@ -592,7 +592,7 @@ export const TransparentTool: React.FC = () => {
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                     activeTool === 'eraser'
                       ? 'bg-violet-600 text-white shadow-2xs'
-                      : 'text-neutral-700 hover:bg-neutral-100'
+                      : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                   }`}
                 >
                   <Eraser className="w-3.5 h-3.5" />
@@ -605,7 +605,7 @@ export const TransparentTool: React.FC = () => {
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                     activeTool === 'restore'
                       ? 'bg-violet-600 text-white shadow-2xs'
-                      : 'text-neutral-700 hover:bg-neutral-100'
+                      : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                   }`}
                 >
                   <Paintbrush className="w-3.5 h-3.5" />
@@ -618,7 +618,7 @@ export const TransparentTool: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleUndo}
-                  className="p-1.5 text-neutral-600 hover:text-neutral-900 bg-white border border-neutral-200 rounded-lg hover:bg-neutral-100 transition-colors shadow-2xs"
+                  className="p-1.5 text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors shadow-2xs"
                   title="Undo"
                 >
                   <Undo2 className="w-4 h-4" />
@@ -626,7 +626,7 @@ export const TransparentTool: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleRedo}
-                  className="p-1.5 text-neutral-600 hover:text-neutral-900 bg-white border border-neutral-200 rounded-lg hover:bg-neutral-100 transition-colors shadow-2xs"
+                  className="p-1.5 text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors shadow-2xs"
                   title="Redo"
                 >
                   <Redo2 className="w-4 h-4" />
@@ -638,7 +638,7 @@ export const TransparentTool: React.FC = () => {
                       restoreImageData(originalImageDataRef.current);
                     }
                   }}
-                  className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-neutral-600 hover:text-neutral-900 bg-white border border-neutral-200 rounded-lg hover:bg-neutral-100 transition-colors shadow-2xs"
+                  className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors shadow-2xs"
                   title="Reset to Original"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
@@ -648,12 +648,12 @@ export const TransparentTool: React.FC = () => {
             </div>
 
             {/* Sub-controls based on active tool */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2 border-t border-neutral-200/80 items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2 border-t border-neutral-200/80 dark:border-neutral-700/80 items-center">
               {/* Tolerance Slider */}
               <div>
-                <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                   <span>Color Tolerance:</span>
-                  <span className="font-mono font-bold text-violet-600">{tolerance}%</span>
+                  <span className="font-mono font-bold text-violet-600 dark:text-violet-400">{tolerance}%</span>
                 </div>
                 <input
                   type="range"
@@ -663,15 +663,15 @@ export const TransparentTool: React.FC = () => {
                   onChange={(e) => setTolerance(parseInt(e.target.value, 10))}
                   onMouseUp={handleSettingsReapply}
                   onTouchEnd={handleSettingsReapply}
-                  className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-violet-600"
+                  className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-violet-600"
                 />
               </div>
 
               {/* Edge Feathering Slider */}
               <div>
-                <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                   <span>Edge Feather (Smooth):</span>
-                  <span className="font-mono font-bold text-violet-600">{feather}px</span>
+                  <span className="font-mono font-bold text-violet-600 dark:text-violet-400">{feather}px</span>
                 </div>
                 <input
                   type="range"
@@ -681,16 +681,16 @@ export const TransparentTool: React.FC = () => {
                   onChange={(e) => setFeather(parseInt(e.target.value, 10))}
                   onMouseUp={handleSettingsReapply}
                   onTouchEnd={handleSettingsReapply}
-                  className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-violet-600"
+                  className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-violet-600"
                 />
               </div>
 
               {/* Brush Size Slider (for eraser and restore) */}
               {(activeTool === 'eraser' || activeTool === 'restore') && (
                 <div>
-                  <div className="flex items-center justify-between text-xs font-medium text-neutral-700 mb-1">
+                  <div className="flex items-center justify-between text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-1">
                     <span>Brush Diameter:</span>
-                    <span className="font-mono font-bold text-violet-600">{brushSize}px</span>
+                    <span className="font-mono font-bold text-violet-600 dark:text-violet-400">{brushSize}px</span>
                   </div>
                   <input
                     type="range"
@@ -698,14 +698,14 @@ export const TransparentTool: React.FC = () => {
                     max="120"
                     value={brushSize}
                     onChange={(e) => setBrushSize(parseInt(e.target.value, 10))}
-                    className="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-violet-600"
+                    className="w-full h-1.5 bg-neutral-200 dark:bg-neutral-700 rounded-lg appearance-none cursor-pointer accent-violet-600"
                   />
                 </div>
               )}
 
               {/* Flood Fill vs All instances */}
               <div className="flex items-center gap-2">
-                <label className="flex items-center gap-2 text-xs font-medium text-neutral-700 cursor-pointer select-none">
+                <label className="flex items-center gap-2 text-xs font-medium text-neutral-700 dark:text-neutral-300 cursor-pointer select-none">
                   <input
                     type="checkbox"
                     checked={contiguousOnly}
@@ -723,7 +723,7 @@ export const TransparentTool: React.FC = () => {
 
               {/* Background Preview Backdrop Selector */}
               <div className="flex items-center gap-1.5">
-                <span className="text-xs text-neutral-500 mr-1">Preview BG:</span>
+                <span className="text-xs text-neutral-500 dark:text-neutral-400 mr-1">Preview BG:</span>
                 {[
                   { id: 'checkerboard', title: 'Transparent Grid', class: 'bg-transparency-grid' },
                   { id: 'white', title: 'White', class: 'bg-white' },
@@ -738,7 +738,7 @@ export const TransparentTool: React.FC = () => {
                     className={`w-6 h-6 rounded-md border transition-all ${bg.class} ${
                       previewBg === bg.id
                         ? 'border-violet-600 ring-2 ring-violet-500/40 scale-105'
-                        : 'border-neutral-300 hover:scale-105'
+                        : 'border-neutral-300 dark:border-neutral-600 hover:scale-105'
                     }`}
                   />
                 ))}
@@ -749,9 +749,9 @@ export const TransparentTool: React.FC = () => {
           {/* Canvas Working Area */}
           {viewMode === 'editor' ? (
             <div className="space-y-2">
-              <div className="flex items-center justify-between text-xs text-neutral-500 px-1">
+              <div className="flex items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 px-1">
                 <span className="flex items-center gap-1.5">
-                  <Crosshair className="w-3.5 h-3.5 text-violet-600" />
+                  <Crosshair className="w-3.5 h-3.5 text-violet-600 dark:text-violet-400" />
                   {activeTool === 'auto' || activeTool === 'eyedropper' ? (
                     <span>Click anywhere on the image to sample and erase that background shade</span>
                   ) : activeTool === 'eraser' ? (
@@ -765,23 +765,23 @@ export const TransparentTool: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setZoom((z) => Math.max(0.5, Number((z - 0.25).toFixed(2))))}
-                    className="p-1 hover:text-neutral-900 rounded hover:bg-neutral-100"
+                    className="p-1 hover:text-neutral-900 dark:hover:text-white rounded hover:bg-neutral-100 dark:hover:bg-neutral-800"
                   >
                     <ZoomOut className="w-3.5 h-3.5" />
                   </button>
-                  <span className="font-mono text-neutral-600 min-w-10 text-center">
+                  <span className="font-mono text-neutral-600 dark:text-neutral-300 min-w-10 text-center">
                     {Math.round(zoom * 100)}%
                   </span>
                   <button
                     onClick={() => setZoom((z) => Math.min(3, Number((z + 0.25).toFixed(2))))}
-                    className="p-1 hover:text-neutral-900 rounded hover:bg-neutral-100"
+                    className="p-1 hover:text-neutral-900 dark:hover:text-white rounded hover:bg-neutral-100 dark:hover:bg-neutral-800"
                   >
                     <ZoomIn className="w-3.5 h-3.5" />
                   </button>
                   {zoom !== 1 && (
                     <button
                       onClick={() => setZoom(1)}
-                      className="text-xs text-violet-600 hover:underline ml-1"
+                      className="text-xs text-violet-600 dark:text-violet-400 hover:underline ml-1"
                     >
                       Reset
                     </button>
@@ -791,7 +791,7 @@ export const TransparentTool: React.FC = () => {
 
               {/* Canvas Container with customizable backing */}
               <div
-                className={`relative min-h-[380px] max-h-[580px] rounded-2xl overflow-auto border border-neutral-300 flex items-center justify-center p-6 ${
+                className={`relative min-h-[380px] max-h-[580px] rounded-2xl overflow-auto border border-neutral-300 dark:border-neutral-700 flex items-center justify-center p-6 ${
                   previewBg === 'checkerboard'
                     ? 'bg-transparency-grid'
                     : previewBg === 'white'
@@ -824,9 +824,9 @@ export const TransparentTool: React.FC = () => {
           ) : (
             /* Before & After Split Slider Compare Mode */
             <div className="space-y-2">
-              <div className="flex items-center justify-between text-xs text-neutral-500 px-1">
+              <div className="flex items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 px-1">
                 <span>Drag the vertical divider line to compare original vs transparent output</span>
-                <span className="font-mono font-medium text-emerald-600">
+                <span className="font-mono font-medium text-emerald-600 dark:text-emerald-400">
                   Ready to export transparent PNG
                 </span>
               </div>
@@ -891,7 +891,7 @@ export const TransparentTool: React.FC = () => {
           )}
 
           {/* Quick Tips footer */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-neutral-500 pt-2 border-t border-neutral-100 gap-2">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 pt-2 border-t border-neutral-100 dark:border-neutral-800 gap-2">
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
               <span>All pixels are processed in RGBA format with 8-bit alpha channels</span>
