@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layers, FolderDown, RotateCcw, Sun, Moon } from 'lucide-react';
+import { Layers, FolderDown, RotateCcw } from 'lucide-react';
 
 interface HeaderProps {
   activeTab: string;
@@ -8,8 +8,6 @@ interface HeaderProps {
   onReset: () => void;
   completedCount: number;
   onDownloadAllZip: () => void;
-  theme: 'light' | 'dark';
-  onToggleTheme: () => void;
 }
 
 const FEATURE_LABELS: Record<string, string> = {
@@ -30,8 +28,6 @@ export const Header: React.FC<HeaderProps> = ({
   onReset,
   completedCount,
   onDownloadAllZip,
-  theme,
-  onToggleTheme,
 }) => {
   const navItems = [
     { id: 'compress', label: 'Compress IMAGE' },
@@ -91,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({
           })}
         </nav>
 
-        {/* Zone 3: Primary Actions, Selected Feature Name & Theme Switcher */}
+        {/* Zone 3: Primary Actions & Selected Feature Name */}
         <div className="flex items-center gap-2.5 shrink-0">
           {hasFiles && (
             <button
@@ -122,27 +118,6 @@ export const Header: React.FC<HeaderProps> = ({
               {selectedFeatureName}
             </span>
           </div>
-
-          {/* Light / Dark Mode Switcher */}
-          <button
-            type="button"
-            onClick={onToggleTheme}
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-xs font-semibold transition-colors whitespace-nowrap shrink-0 cursor-pointer"
-          >
-            {theme === 'dark' ? (
-              <>
-                <Sun className="w-4 h-4 text-amber-400" />
-                <span className="hidden sm:inline">Light</span>
-              </>
-            ) : (
-              <>
-                <Moon className="w-4 h-4 text-neutral-600" />
-                <span className="hidden sm:inline">Dark</span>
-              </>
-            )}
-          </button>
         </div>
       </div>
     </header>

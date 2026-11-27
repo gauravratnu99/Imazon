@@ -9,7 +9,7 @@ import { CropTool } from './components/CropTool';
 import { WatermarkTool } from './components/WatermarkTool';
 import { PhotoEditorTool } from './components/PhotoEditorTool';
 import { ConvertTool } from './components/ConvertTool';
-import { Layers } from 'lucide-react';
+import { Layers, Sun, Moon } from 'lucide-react';
 
 type ThemeMode = 'light' | 'dark';
 
@@ -69,8 +69,6 @@ export default function App() {
         onReset={() => resetFnRef.current?.()}
         completedCount={activeTab === 'compress' ? completedCount : 0}
         onDownloadAllZip={() => zipFnRef.current?.()}
-        theme={theme}
-        onToggleTheme={handleToggleTheme}
       />
 
       {/* Unified Suite Bar with Compress, Resize, Upscale, Transparent, etc. */}
@@ -109,6 +107,45 @@ export default function App() {
           <div className="hidden sm:block" aria-hidden="true" />
         </div>
       </footer>
+
+      {/* Fixed Right-Side Theme Switcher Widget */}
+      <div
+        role="group"
+        aria-label="Theme switcher"
+        className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-1 p-1.5 rounded-l-2xl bg-white/95 dark:bg-neutral-900/95 backdrop-blur-md border border-r-0 border-neutral-200 dark:border-neutral-700 shadow-lg transition-colors duration-200"
+      >
+        <button
+          type="button"
+          onClick={() => theme !== 'light' && handleToggleTheme()}
+          aria-label="Light mode"
+          aria-pressed={theme === 'light'}
+          title="Light mode"
+          className={`flex flex-col items-center justify-center w-10 py-2 rounded-xl text-[10px] font-semibold transition-all cursor-pointer ${
+            theme === 'light'
+              ? 'bg-amber-100 text-amber-700 shadow-2xs ring-1 ring-amber-300/80'
+              : 'text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-neutral-100'
+          }`}
+        >
+          <Sun className="w-4 h-4 mb-0.5" />
+          <span>Light</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => theme !== 'dark' && handleToggleTheme()}
+          aria-label="Dark mode"
+          aria-pressed={theme === 'dark'}
+          title="Dark mode"
+          className={`flex flex-col items-center justify-center w-10 py-2 rounded-xl text-[10px] font-semibold transition-all cursor-pointer ${
+            theme === 'dark'
+              ? 'bg-neutral-800 text-amber-300 shadow-2xs ring-1 ring-neutral-600'
+              : 'text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900'
+          }`}
+        >
+          <Moon className="w-4 h-4 mb-0.5" />
+          <span>Dark</span>
+        </button>
+      </div>
     </div>
   );
 }
